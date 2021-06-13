@@ -1,0 +1,36 @@
+[
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to iSpy",
+    "description": "Welcome to our new blog, iSpy. We hope you enjoy \nreading what we have to say!",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2021-06-13",
+    "categories": [],
+    "contents": "\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-06-13T09:30:41+08:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2021-06-13-proposal/",
+    "title": "Proposal",
+    "description": "ISSS608 Visual Analytics Project",
+    "author": [
+      {
+        "name": "Li ShuXian, Hong Yun Ting, Yang Xu",
+        "url": {}
+      }
+    ],
+    "date": "2021-06-09",
+    "categories": [],
+    "contents": "\nBackground\nGAStech provides many of their employees with company cars for their personal and professional use, but unbeknownst to the employees, the cars are equipped with GPS tracking devices. You are given tracking data for the two weeks leading up to the disappearance, as well as credit card transactions and loyalty card usage data.\nMotivation\nThe challenge requires us to analyze movement and tracking data from loyalty cards and credit cards. Our group is interested in finding out the hidden story behind the data. For example, if there is any mismatch between credit card history and his or her location. Therefore, we aimed to match the tables and explore more.\nProject Objectives\nThis project aims to deliver a R Shiny Application which enables\nInteractive User interface that allows users to navigate the content at ease.\nSpending pattern between Employee credit card and loyalty card usage\nVisualize Geographical Data on employees personal/work route and routines\nIdentify anomalies and suspicious behaviors\nIdentify any relationship/employee interactions in GASTech\nAnalyze tracking data and identify who are the users of credit cards and loyalty cards\nProposed Scope and Methodology\nExploratory Data Analysis (EDA)\nIdentify popular locations using the credit and loyalty data\nExplore trends of spending behaviors by locations and identify anomalies\nExplore time of spending using the timestamp datapoints and identify anomalies\nExploratory Spatial Data Analysis (ESDA)\nDevelop map using the geospatial data files and plot the routes travelled by each car ID by date and credit/Loyalty card usage on the map\nIdentify potential informal and unofficial relationships among GASTech personnel with employees share the same/similar routes or frequently appear at same spots together.\nIdentify the correlations between the routes and card usage to infer the owners of each credit card/loyalty card.\nStatistical Analysis\nGeospatial Clustering for transactions\nCorrelation analysis\nGeographically weighted regression\nProject Timeline\n\nStoryboard & Visualization Features\nFirst page: EDA (Dashboard Style)\nEmployee favorite Hotspot\nAverage of Individual credit card spending amount\n\nGeospatial Map (with selection of date and employee(one/multiple)) - one page\nShow destination, cc / loyalty card used and time\nShow any other employees happen to be at the same location within the time frame\n\nStatistical Analysis (eg. Selection of x-variables, y-variables, graph)\nData Preparation\nData Source\nGPS data from the devices fitted in the employee cars\nEmployee car assignments\nCredit card swipe details\nLoyalty card details\nTourist map of the area - Abila\nShp files\nprj file\nTools Used\nTableau\nMicrosoft Excel\nQuestions and Feedback\nIs it necessary to answer all the questions in Mini-challenges\nWill prof Kam be teaching Statistical analysis?\nHow to plot overlay map pictures in R\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-06-13T09:52:48+08:00",
+    "input_file": {}
+  }
+]
