@@ -5,16 +5,16 @@
     "description": "Welcome to our new blog, iSpy. We hope you enjoy \nreading what we have to say!",
     "author": [
       {
-        "name": "Nora Jones",
-        "url": "https://example.com/norajones"
+        "name": "Li ShuXian, Hong Yun Ting, Yang Xu",
+        "url": {}
       }
     ],
     "date": "2021-06-13",
     "categories": [],
     "contents": "\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-06-13T09:30:41+08:00",
-    "input_file": {}
+    "last_modified": "2021-06-13T10:15:09+08:00",
+    "input_file": "welcome.knit.md"
   },
   {
     "path": "posts/2021-06-13-proposal/",
