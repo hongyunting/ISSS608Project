@@ -46,10 +46,7 @@ The challenge requires us to analyze movement and tracking data from loyalty car
 * Identify potential informal and unofficial relationships among GASTech personnel with employees share the same/similar routes or frequently appear at same spots together. 
 * Identify the correlations between the routes and card usage to infer the owners of each credit card/loyalty card. 
 
-### Statistical Analysis
-* Geospatial Clustering for transactions 
-* Correlation analysis 
-* Geographically weighted regression
+
 
 ### Project Timeline
 ![](images/Project Timeline.png)
