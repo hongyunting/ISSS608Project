@@ -58,7 +58,7 @@ The challenge requires us to analyze movement and tracking data from loyalty car
 * Geospatial Map (with selection of date and employee(one/multiple)) - one page  
   + Show destination, cc / loyalty card used and time 
   + Show any other employees happen to be at the same location within the time frame 
-* Statistical Analysis (eg. Selection of x-variables, y-variables, graph)  
+
 
 # Data Preparation 
 ### Data Source 
@@ -71,10 +71,7 @@ The challenge requires us to analyze movement and tracking data from loyalty car
 * prj file 
 
 ### Tools Used 
-* Tableau 
+* Tableau
 * Microsoft Excel 
+* R Studio 
 
-# Questions and Feedback
-1. Is it necessary to answer all the questions in Mini-challenges  
-2. Will prof Kam be teaching Statistical analysis? 
-3. How to plot overlay map pictures in R
