@@ -1,0 +1,234 @@
+---
+title: "YT Assignment MC2"
+description: |
+  A short description of the post.
+author:
+  - name: HONG Yun Ting
+    url: {}
+date: 07-01-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Overview
+GAStech is a company that is located in a country island of Kronos and it has come to their attention that some of the employees had mysteriously went missing. Vehicles tracking data that was secretly installed in the company's cars and Kronos-Kares benefit card information are delivered to authorities for investigation. 
+
+# Literature review of existing analysis performed
+
+# 3. Extracting, wrangling and preparing the input data
+
+### 3.1 Setting up environment
+```{r, echo=TRUE}
+packages = c('tidyverse', 'lubridate', 'dplyr', 'raster', 'clock', 'sf', 'tmap', 'plotly', 'ggplot2', 'mapview', 'rgdal',
+             'rgeos', 'sqldf')
+
+for (p in packages) {
+  if (!require(p, character.only = T)) {
+    install.packages(p, repos = "http://cran.us.r-project.org")
+  }
+  library(p, character.only = T)
+}
+```
+
+## Importing Data
+```{r}
+carAssignment <- read_csv("mc2/car-assignments.csv") 
+carAssignment
+```
+
+```{r, echo=TRUE}
+ccData <- read_csv("MC2/cc_data.csv") %>%
+  mutate(Date = as.Date(mdy_hm(timestamp)), Time = format(mdy_hm(timestamp), "%H:%M"))
+
+loyaltyData <- read_csv("MC2/loyalty_data.csv") %>%
+  mutate(Date = as.Date(mdy(timestamp)))
+
+ccLoyalty <- left_join(ccData, loyaltyData, by = c("Date", "location", "price")) %>%
+  dplyr::select(Date, Time, location, price, last4ccnum, loyaltynum) %>%
+  group_by(last4ccnum)
+
+ccLoyalty$weekday = wday(ccLoyalty$Date, label = TRUE, abbr = TRUE) 
+
+ccLoyalty
+
+```
+```{r}
+BrewBeenServed <- ccLoyalty %>%
+  filter(location == "Brew've Been Served" & Date == '2014-01-06' & Time > '07:27' & Time < '08:00')
+
+BrewBeenServed
+```
+
+```{r}
+
+gps <- read_csv("MC2/gps.csv") %>%
+  mutate(date = as.Date(mdy_hms(Timestamp)), Time = format(mdy_hms(Timestamp), "%H:%M"))
+
+gps$Timestamp <- date_time_parse(gps$Timestamp, zone = "", format = "%m/%d/%Y %H:%M:%S") 
+
+gps$id <- as_factor(gps$id)
+
+gps
+```
+
+## Filtering variables
+These variables can be changed to a different car ID (Car 1-35) and GPS date(2014-01-06 to 2014-01-19)
+
+```{r}
+car_id <- 1
+gps_date <- '2014-01-06'
+```
+
+## Car coordinates when vehicle stopped
+I am eliminating coordinates that indicating that the car is moving
+The GPS car coordinates are recorded every 1-5 secs. 
+Therefore, if there is a GPS record difference of more than a min, which means the employee has driven the car to a destination
+
+1. I am getting the first and last car coordinate each day 
+2. Getting the car stopped locations through the days
+
+
+```{r}
+ts <- gps %>%
+  filter(id == car_id) %>%
+  group_by(date) %>%
+    arrange(Time) %>%
+      mutate(diff = c(difftime(tail(Timestamp, -1), head(Timestamp, -1), units = "mins"), 0)) %>%
+      mutate(count = 1:n(), FIRST = count == 1, LAST = count == max(count)) %>%
+        filter(diff > 1 | FIRST == TRUE | LAST == TRUE) %>%
+  arrange(date)
+
+ts
+```
+```{r}
+car_id2 <- 2
+gps_date2 <- '2014-01-06'
+```
+
+## Car coordinates when vehicle stopped
+I am eliminating coordinates that indicating that the car is moving
+The GPS car coordinates are recorded every 1-5 secs. 
+Therefore, if there is a GPS record difference of more than a min, which means the employee has driven the car to a destination
+
+1. I am getting the first and last car coordinate each day 
+2. Getting the car stopped locations through the days
+
+
+```{r}
+ts2 <- gps %>%
+  filter(id == car_id2) %>%
+  group_by(date) %>%
+    arrange(Time) %>%
+      mutate(diff = c(difftime(tail(Timestamp, -1), head(Timestamp, -1), units = "mins"), 0)) %>%
+      mutate(count = 1:n(), FIRST = count == 1, LAST = count == max(count)) %>%
+        filter(diff > 1 | FIRST == TRUE | LAST == TRUE) %>%
+  arrange(date)
+
+ts2
+```
+```{r}
+
+gps_id1 <- gps %>%
+  filter(id == 1)
+
+map <- ggplot() + 
+    geom_point(data = gps_id1, aes(x = long, y = lat)) + # Add coordinate data
+    theme_bw() + # Change the plot theme
+    ggtitle("Distribution of Sampled Cores across CONUS") + # Give the plot a title
+    xlab("Longitude") + # Change x axis title
+    ylab("Latitude") # Change y axis title
+    map
+```
+
+```{r}
+bgmap <- raster("MC2/Geospatial/MC2-tourist_modified.tif")
+bgmap # raster layer
+```
+
+```{r}
+tmap_mode("plot") # plot is static mode, view is interactive mode
+```
+
+```{r}
+tm_shape(bgmap) + # full data of the spatial file
+  tm_raster(bgmap, legend.show = FALSE)
+```
+
+```{r}
+tm_shape(bgmap) + 
+  tm_rgb(bgmap, r = 1, g = 2, b = 3, # setting red to band 1, green to band 2, blue to band 3
+         alpha = NA,
+         saturation = 1,
+         interpolate = TRUE,
+         max.value = 255)
+```
+
+
+```{r}
+#Abila_st <- st_read("MC2/Geospatial", layer = "Abila") # store it as simple feature
+#Abila_st
+
+Abila_st <- readOGR("MC2/Geospatial", layer = "Abila")
+Abila_st
+```
+
+```{r}
+gps_sf_path <- st_as_sf(ts, coords = c("long", "lat"), crs = 4326)  %>%
+            #group_by(id) %>%
+            #summarize(Timestamp = mean(Timestamp),
+            #             do_union=FALSE) %>% #Summarize is unless, but because we want to use group_by, we need to do something
+            st_cast("POINT")
+
+gps_sf_path2 <- st_as_sf(ts2, coords = c("long", "lat"), crs = 4326) %>%
+            #group_by(id) %>%
+            #summarize(Timestamp = mean(Timestamp),
+            #             do_union=FALSE) %>% #Summarize is unless, but because we want to use group_by, we need to do something
+            st_cast("POINT")
+
+```
+
+# Map view of Abila, Kronos's route and Employees' whereabout
+
+```{r}
+tmap_mode("view")
+tm_shape(bgmap) + 
+  tm_rgb(bgmap, r = 1, g = 2, b = 3,
+         alpha = NA,
+         saturation = 1,
+         interpolate = TRUE, 
+         max.value = 255) +
+  tm_shape(Abila_st) + 
+    tm_lines() +
+  tm_shape(gps_sf_path) +
+    tm_dots("red") +
+  tm_shape(gps_sf_path2) +
+    tm_dots("blue")
+
+```
+
+
+
+
+```{r}
+
+  
+id <- c("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35")
+
+location <- c("Brew've Been Served","Hallowed Grounds","Brew've Been Served","Coffee Cameleon","Abila Airport","Kronos Pipe and Irrigation","Nationwide Refinery","Maximum Iron and Steel","Stewart and Sons Fabrication","Carlyle Chemical Inc.","Coffee Shack","Bean There Done That","Brewed Awakenings","Jack's Magical Beans","Katerinaís CafÈ","Hippokampos","Abila Zacharo","Gelatogalore","Kalami Kafenion","Ouzeri Elian","Guy's Gyros","U-Pump","Frydos Autosupply n' More","Albert's Fine Clothing","Shoppers' Delight","Abila Scrapyard","Frank's Fuel","Chostus Hotel","General Grocer","Kronos Mart","Octavio's Office Supplies","Roberts and Sons","Ahaggo Museum","Desafio Golf Course","Daily Dealz", "GAStech")
+
+
+#lat <- c(23, 41, 32, 58, 26)
+#long <-
+desc <- c("Calixto Nils's house","Azada Lars's house","Balas Felix's house","Barranco Ingrid's house","Baza Isak's house","Bergen Linnea's house","Orilla Elsa's house","Alcazar Lucas's house","Cazar Gustav's house","Campo-Corrente Ada's house","Calzas Axel's house","Cocinaro Hideki's house","Ferro Inga's house","Dedos Lidelse's house","Bodrogi Loreto's house","Vann Isia's house","Flecha Sven's house","Frente Birgitta's house","Frente Vira's house","Fusil Stenig's house","Osvaldo Hennie's house","Nubarron Adra's house","Lagos Varja's house","Mies Minke's house","Herrero Kanon's house","Onda Marin's house","Orilla Kare's house","Borrasca Isande's house","Ovan Bertrand's house","Resumir Felix's house","Sanjorge Jr. Sten's house","Strum Orhan's house","Tempestad Brand's house","Vann Edvard's house","Vasco-Pais Willem's house")
+  
+
+df <- data.frame(id, desc)
+df
+```
+
