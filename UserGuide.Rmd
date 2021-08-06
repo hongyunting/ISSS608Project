@@ -1,9 +1,9 @@
 ---
-title: "About this blog"
+title: "User Guide"
 description: |
   Some additional details about the blog
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
