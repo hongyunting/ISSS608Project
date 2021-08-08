@@ -9,13 +9,14 @@
 
 library(shiny)
 library(shinythemes)
+library(rsconnect)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
     
     #Navbar structure for UI
-    navbarPage("iSpy Analysis", theme = shinytheme("lumen"),
-               tabPanel("Exploratory", fluid = TRUE), 
+    navbarPage("iSpy - Alibab, Kronos", theme = shinytheme("lumen"),
+               tabPanel("Exploratory Data Analysis", fluid = TRUE), 
                tabPanel("GPS Tracking", fluid = TRUE, 
                         sidebarLayout(
                             sidebarPanel(
