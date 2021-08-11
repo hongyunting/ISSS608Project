@@ -5,7 +5,7 @@
       "title": "iSpy",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-08-11T23:23:22+08:00"
+      "last_modified": "2021-08-11T23:31:30+08:00"
     },
     {
       "path": "Poster.html",
@@ -33,11 +33,11 @@
     },
     {
       "path": "RShinyApplication.html",
-      "title": "Application",
-      "description": "Some additional details about the blog\n",
+      "title": "iSpy Shiny Application",
+      "description": "GAStech Tracking System using R and Shiny\nPlease allow a few seconds for R Shiny to load up\n",
       "author": [],
       "contents": "\n\n\n\n\n \n\n",
-      "last_modified": "2021-08-11T23:23:17+08:00"
+      "last_modified": "2021-08-11T23:31:21+08:00"
     },
     {
       "path": "UserGuide.html",

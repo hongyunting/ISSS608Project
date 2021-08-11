@@ -1,7 +1,8 @@
 ---
-title: "Application"
+title: "iSpy Shiny Application"
 description: |
-  Some additional details about the blog
+  GAStech Tracking System using R and Shiny
+  Please allow a few seconds for R Shiny to load up
 output: html_document
 runtime: shiny
 ---
