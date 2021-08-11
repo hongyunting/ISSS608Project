@@ -1,11 +1,17 @@
+library(sf)
+library(tmap)
+library(readr)
+library(tidyverse)
+library(magrittr)
+library(rgdal)
+library(raster)
 bgmap <- raster("R/data/Geospatial/MC2-tourist_modified.tif")
+
 mpAbila <- st_read("R/data/Geospatial", layer = "Abila") %>%
   st_make_valid()
 
-emp <- read_csv("R/data/car-assignments.csv")
-
-gps <- read_csv("R/data/gpsModified.csv")
-
+emp <- read_csv("data/car-assignments.csv")
+gps <- read_csv("data/gpsModified.csv")
 
 AbilaUI <- function(id){
   
@@ -41,7 +47,7 @@ AbilaServer <- function(id){
         st_cast("POINT")
       
       tm_shape(bgmap) + 
-        tm_rgb(bgmap, r = 1, g = 2, b = 3, # setting red to band 1, green to band 2, blue to band 3
+       tm_rgb(bgmap, r = 1, g = 2, b = 3, # setting red to band 1, green to band 2, blue to band 3
                alpha = NA,
                saturation = 1,
                interpolate = TRUE, 

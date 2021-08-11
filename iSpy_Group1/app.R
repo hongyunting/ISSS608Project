@@ -10,11 +10,6 @@
 library(shiny)
 library(shinythemes)
 library(rsconnect)
-library(sf)
-library(tmap)
-library(tidyverse)
-library(raster)
-
 
 ui <- fluidPage(
     

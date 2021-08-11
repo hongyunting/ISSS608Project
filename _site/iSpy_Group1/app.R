@@ -11,26 +11,28 @@ library(shiny)
 library(shinythemes)
 library(rsconnect)
 
-# Define UI for application that draws a histogram
 ui <- fluidPage(
     
     #Navbar structure for UI
     navbarPage("iSpy - Alibab, Kronos", theme = shinytheme("lumen"),
                tabPanel("Exploratory Data Analysis", fluid = TRUE), 
                tabPanel("GPS Tracking", fluid = TRUE, 
-                        sidebarLayout(
-                            sidebarPanel(
-                                titlePanel("Filter By")
-                                        ),
-                            mainPanel()
-                        )),
+                        titlePanel("Tracing GAStech's Assigned Car"),
+                        tags$head(
+                          tags$style(HTML("
+                             .multicol {
+                               -webkit-column-count: 3; /* Chrome, Safari, Opera */
+                               -moz-column-count: 3; /* Firefox */
+                               column-count: 3;
+                            }
+                       "))),
+                        AbilaUI("abilaPlot")),
                tabPanel("Text Analysis", fluid = TRUE))
               
 )
 
-# Define server logic required to draw a histogram
 server <- function(input, output, session) {
-
+  AbilaServer("abilaPlot")
 }
 
 # Run the application 
