@@ -10,7 +10,7 @@ runtime: shiny
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r, layout="l-screen-inset"}
 library(shiny)
 ```
 

@@ -3,6 +3,7 @@ library(tmap)
 library(readr)
 library(tidyverse)
 library(magrittr)
+library(rgdal)
 library(raster)
 bgmap <- raster("R/data/Geospatial/MC2-tourist_modified.tif")
 
