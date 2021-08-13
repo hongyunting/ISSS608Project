@@ -14,7 +14,7 @@ library(rsconnect)
 ui <- fluidPage(
     
     #Navbar structure for UI
-    navbarPage("iSpy - Alibab, Kronos", theme = shinytheme("lumen"),
+    navbarPage("iSpy - Aliba, Kronos", theme = shinytheme("lumen"),
                tabPanel("Exploratory Data Analysis", fluid = TRUE), 
                tabPanel("GPS Tracking", fluid = TRUE, 
                         titlePanel("Tracing GAStech's Assigned Car"),
