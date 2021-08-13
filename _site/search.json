@@ -5,15 +5,15 @@
       "title": "iSpy",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-08-11T23:31:30+08:00"
+      "last_modified": "2021-08-13T22:48:28+08:00"
     },
     {
       "path": "Poster.html",
       "title": "Poster",
       "description": "Some additional details about the blog",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2021-08-07T01:11:23+08:00"
+      "contents": "\n  \n    This browser does not support PDFs. Please download the PDF to view it: Download PDF.\n    \n\n\n\n\n",
+      "last_modified": "2021-08-13T22:48:23+08:00"
     },
     {
       "path": "Proposal.html",
@@ -28,8 +28,8 @@
       "title": "Research Paper",
       "description": "Some additional details about the blog",
       "author": [],
-      "contents": "\nThis is our research paper\n\n\n\n",
-      "last_modified": "2021-08-07T01:11:35+08:00"
+      "contents": "\n\n    This browser does not support PDFs. Please download the PDF to view it: Download PDF.\n    \n\n\n\n\n",
+      "last_modified": "2021-08-13T22:45:54+08:00"
     },
     {
       "path": "RShinyApplication.html",
