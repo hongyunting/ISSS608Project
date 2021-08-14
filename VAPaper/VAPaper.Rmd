@@ -4,11 +4,11 @@ author:
   - name: Hong Yun Ting
     email: ythong.2019@mitb.smu.edu.sg
     affiliation: Singapore Management University
-  - name: Shu Xian
+  - name: Li ShuXian
     email: bob@example.com
     affiliation: Singapore Management University
   - name: Yang Xu
-    email: bob@example.com
+    email: xu.yang.2020@mitb.smu.edu.sg
     affiliation: Singapore Management University
 abstract: |
   Building interactive web application using Shiny for R programming language.
@@ -20,22 +20,46 @@ output: rticles::acm_article
 ---
 
 # Introduction 
-GAStech provides many of their employees with company cars for personal and professional use, but unbeknownst to the employees, the cars are equipped with GPS tracking devices. Beside that, to promote local business, GAStech also provides Kronos-Kares loyalty card in exchange for collecting information about their employee's credit card transactions and preferences recorded on loyalty cards. With the disappearance of GAStech employees in January 2014, GAStech released a tracking data of 2 weeks leading up to the disappearance, as well as the credit card transaction and loyalty card usage data.  These datasets can be used for tracking employee movement pattern through space and time and are likely to contain patterns which provides useful information about the characteristics of the employee daily journey. The analysis results will provide a great insights on employee movement and spending behaviors around Aliba, Kronos across a 2 week period and the insights gained can potentially contributed to local law enforcement to identify anomalies or suspicious pattern of behaviors. 
+Abila city was in unrest in the first month of 2014. The local company GAStech reported missing employees while multiple major outbreaks struck the city on the night of 23rd.
+
+To investigate the incidents, multiple sources of evidences have been collated:
+
+1. GAStech provides many of their employees with company cars for personal and professional use, but unbeknownst to the employees, the cars are equipped with GPS tracking devices. Beside that, to promote local business, GAStech also provides Kronos-Kares loyalty card in exchange for collecting information about their employee's credit card transactions and preferences recorded on loyalty cards. With the disappearance of GAStech employees in January 2014, GAStech released a tracking data of 2 weeks leading up to the disappearance, as well as the credit card transaction and loyalty card usage data.  
+
+
+2. Relevant microblog records that have been identified by automated filters and text transcripts of emergency dispatches by the Abila, Kronos local police and fire departments.
+
+Leveraging on the available information, different visual analysis have been used to support the investigations of these incidents and potentially contribute to local law enforcement to identify anomalies or suspicious pattern of behaviors.
+
+
+
 
 # Motivation 
-Lorem ipsum dolor sit[@meier2012] amet, consectetur adipiscing[@fenner2012a] elit. Pellentesque rhoncus ut tellus eu tristique. Duis pharetra velit vitae viverra elementum. Nulla metus dui, pulvinar id enim at, pellentesque semper ipsum. Phasellus cursus dignissim ipsum, sed congue orci pretium quis. Maecenas rhoncus leo a cursus euismod. Fusce a erat eu ipsum tristique tempus at sed tortor. Aliquam erat volutpat. Donec at pretium lorem. Donec pretium nunc id nunc bibendum convallis. Phasellus quis enim id massa feugiat egestas hendrerit sollicitudin nibh. Sed blandit eros id tellus porta, eget ullamcorper urna posuere. Pellentesque laoreet lacus nibh, a mattis libero viverra sit amet. Sed vitae diam interdum, pharetra neque sit amet, dictum lectus.
+Appropriate visual approaches could largely reduce tediousness to scan through numbers and text data and improve investigation efficiency. Further empowered by the UI interactivity, trends and patterns of behaviors can be easily revealed with the ease of selections and filtering. 
 
-Donec massa justo, ultricies quis facilisis sed, tristique nec metus. Vestibulum id condimentum diam. Integer semper augue id porttitor ultrices. Cras vulputate felis eu diam porttitor, ac pulvinar nisi imperdiet. Donec eros felis, imperdiet vel malesuada at, varius et quam. Phasellus facilisis non risus eu placerat. Sed ac mollis lorem.
+However, real-life data comes in with different formats and users often need to spend much efforts to perform analysis separately and draw meaningful insights. With the general lack of effective and easy to use web-enabled interactive and integrated applications for investigation, this project aims to build and publish an interactive RShiny web applications prototype to integrate different visual analysis together. The project attempts to enable the following analysis:  
+
+1. To reveal city location hot-spots based on the spending data and detect spending anomaly. The location data and the time of spending were split into different categories to sharpen the analysis. Investigators are able to scale down the scope of analysis with more focus on specific segments with the use of selections. 
+
+2. To create an interactive map visualization framework that supports selection of time frame as well as employees. movement patterns of one or more employees are displayed to discover abnormal behaviours and unofficial relationships.
+
+3. To build a timeline analysis for the chaotic night on 23rd based on text analytics. Leveraging on topic modelling techniques, meaningful themes are extracted from the massive amount of text data to help investigators form better understanding on the occurrence of events.
+
 
 # Review and Critics
-Nullam semper imperdiet orci, at lacinia est aliquet et. Sed justo nibh, aliquet et velit at, pharetra consequat velit. Nullam nec ligula sagittis, adipiscing nisl sed, varius massa. Mauris quam ante, aliquet a nunc et, faucibus imperdiet libero. Suspendisse odio tortor, bibendum vel semper sit amet, euismod ac ante. Nunc nec dignissim turpis, ac blandit massa. Donec auctor massa ac vestibulum aliquam. Fusce auctor dictum lobortis. Vivamus tortor augue, convallis quis augue sit amet, laoreet tristique quam. Donec id volutpat orci. Suspendisse at mi vel elit accumsan porta ac ut diam. Nulla ut dapibus quam.
+There has been work done on the map visualisations from the previous VAST Challenge submissions. Many teams have adopted the geo-visual approaches by adding the background map to reveal daily patterns of each individual and the potential relationships among the employees.
 
-Sed est odio, ornare in rutrum et, dapibus in urna. Suspendisse varius massa in ipsum placerat, quis tristique magna consequat. Suspendisse non convallis augue. Quisque fermentum justo et lorem volutpat euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi sagittis interdum justo, eu consequat nisi convallis in. Sed tincidunt risus id lacinia ultrices. Phasellus ac ligula sed mi mattis lacinia ac non felis. Etiam at dui tellus.
+(Central South University, VAST 2014 MC2 Submission). Through the combination of geospatial data as well as geo-referenced map, the team was able to visualize the movement patterns and visited spots are clearly identified. 
+
+
 
 # Design Framework 
-Lorem ipsum dolor sit[@meier2012] amet, consectetur adipiscing[@fenner2012a] elit. Pellentesque rhoncus ut tellus eu tristique. Duis pharetra velit vitae viverra elementum. Nulla metus dui, pulvinar id enim at, pellentesque semper ipsum. Phasellus cursus dignissim ipsum, sed congue orci pretium quis. Maecenas rhoncus leo a cursus euismod. Fusce a erat eu ipsum tristique tempus at sed tortor. Aliquam erat volutpat. Donec at pretium lorem. Donec pretium nunc id nunc bibendum convallis. Phasellus quis enim id massa feugiat egestas hendrerit sollicitudin nibh. Sed blandit eros id tellus porta, eget ullamcorper urna posuere. Pellentesque laoreet lacus nibh, a mattis libero viverra sit amet. Sed vitae diam interdum, pharetra neque sit amet, dictum lectus.
+The applications has 3 major components: 
+-Displaying city hot-spots and GASTech employees' spending patterns 
+-geo-spatial approach to track employee movement pattern through space and time and are likely to contain patterns which provides useful information about the characteristics of the employee daily journey.
+-Text analytics 
 
-# Use Cases 
+# Use Cases
 Lorem ipsum dolor sit[@meier2012] amet, consectetur adipiscing[@fenner2012a] elit. Pellentesque rhoncus ut tellus eu tristique. Duis pharetra velit vitae viverra elementum. Nulla metus dui, pulvinar id enim at, pellentesque semper ipsum. Phasellus cursus dignissim ipsum, sed congue orci pretium quis. Maecenas rhoncus leo a cursus euismod. Fusce a erat eu ipsum tristique tempus at sed tortor. Aliquam erat volutpat. Donec at pretium lorem. Donec pretium nunc id nunc bibendum convallis. Phasellus quis enim id massa feugiat egestas hendrerit sollicitudin nibh. Sed blandit eros id tellus porta, eget ullamcorper urna posuere. Pellentesque laoreet lacus nibh, a mattis libero viverra sit amet. Sed vitae diam interdum, pharetra neque sit amet, dictum lectus.
 
 # Discussion 
