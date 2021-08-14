@@ -60,7 +60,7 @@ ccLoyalty$period <- cut(as.numeric(ccLoyalty$hour),
                              "night"))
 
 ccLoyalty <- ccLoyalty %>%
-  select(CarID, date, time, period, location, price, last4ccnum, loyaltynum.x)
+  dplyr::select(CarID, date, time, period, location, price, last4ccnum, loyaltynum.x)
 
 # UI
 AbilaUI <- function(id){

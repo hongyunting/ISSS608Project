@@ -1,6 +1,7 @@
 library(shiny)
 library(tidyverse)
 library(plotly)
+library(dplyr)
 library(tools)
 library(lubridate)
 library(stringi)
