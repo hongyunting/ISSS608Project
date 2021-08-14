@@ -144,6 +144,11 @@ Furthermore, there were several Chostus Hotel Meetups by Elsa Orilla and Brand T
 ![](VAPaper_IMG/09.png)
 *Fig 9. Traces of Elsa Orilla and Brand Tempestad on 10th Jan*
 
+However, based on the transaction details from below, they paid their bills separately.
+
+![](VAPaper_IMG/10.png)
+*Fig 10. transactionns of Elsa Orilla and Brand Tempestad on 10th Jan at Chostus Hotel*
+
 
 ## Text Analysis 
 
