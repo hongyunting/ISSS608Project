@@ -20,64 +20,36 @@ emp <- read_csv("R/data/car-assignments.csv")
 
 empLocation <- read_csv("R/data/empLocation.csv")
 empLocation$id <- as_factor(empLocation$id)
-empLocation$hour <- strftime(empLocation$Timestamp, format = "%H")
-empLocation$datehour <- strftime(empLocation$Timestamp, format = "%d-%H")
-empLocation$period <- cut(as.numeric(empLocation$hour),
-                        breaks = c(0,5,11,14,19,20,23),
-                        labels = c("midnight",
-                                   "morning",
-                                   "lunch",
-                                   "afternoon",
-                                   "dinner",
-                                   "night"))
+empLocation$date <- as.Date(empLocation$date, format = "%d/%m/%y")
 
 gps <-read_csv("R/data/gps.csv")
 gps$id <- as_factor(gps$id)
-gps$hour <- strftime(gps$Timestamp, format = "%H")
-gps$datehour <- strftime(gps$Timestamp, format = "%d-%H")
-gps$period <- cut(as.numeric(gps$hour),
-                        breaks = c(0,5,11,14,19,20,23),
-                        labels = c("midnight",
-                                   "morning",
-                                   "lunch",
-                                   "afternoon",
-                                   "dinner",
-                                   "night"))
+gps$date <- as.Date(gps$date, format = "%d/%m/%y")
 
 ccLoyalty <-read_csv("R/data/ccLoyalty.csv")
 ccLoyalty$date <- as.Date(ccLoyalty$date, format = "%d/%m/%y")
 
-#adding features of the data
-ccLoyalty$hour <- strftime(ccLoyalty$timestamp, format = "%H")
-ccLoyalty$datehour <- strftime(ccLoyalty$timestamp, format = "%d-%H")
-ccLoyalty$period <- cut(as.numeric(ccLoyalty$hour),
-                  breaks = c(0,5,11,14,19,20,23),
-                  labels = c("midnight",
-                             "morning",
-                             "lunch",
-                             "afternoon",
-                             "dinner",
-                             "night"))
-
 ccLoyalty <- ccLoyalty %>%
   dplyr::select(CarID, date, time, period, location, price, last4ccnum, loyaltynum.x)
+
+periodStr <- c("morning", "lunch", "afternoon", "dinner", "night", "midnight")
 
 # UI
 AbilaUI <- function(id){
   
   sidebarLayout(
     sidebarPanel(
-      sliderInput(NS(id, "Date"), "Date", min=as.Date("2014-01-06"), max=as.Date("2014-01-19"),
-                  value = c(as.Date("2014-01-06"), as.Date("2014-01-07"))),
+      sliderInput(NS(id, "Date"), "Date Range", min=as.Date("2014-01-06"), max=as.Date("2014-01-19"),
+                  value = c(as.Date("2014-01-06"), as.Date("2014-01-06"))),
       sliderTextInput(NS(id, "timeperiod"), 
-                      label = "Timeperiod",
+                      label = "Timeperiod Range (Morning, Lunch, Afternoon, Dinner, Night, Midnight)",
                       choices = c("morning" = "morning",
                                   "lunch" = "lunch",
                                   "afternoon" = "afternoon",
                                   "dinner" = "dinner",
                                   "night" = "night",
                                   "midnight" = "midnight"),
-                      selected = c("morning", "lunch")),
+                      selected = c("morning", "midnight")),
       checkboxInput(NS(id, "show_route"),
                     label = "Show Abila Route",
                     value = TRUE),
@@ -121,17 +93,26 @@ AbilaServer <- function(id){
       
       input$apply_changes
       isolate({
+      
+        periodIndex <- match(input$timeperiod, periodStr)
+        
+        if(length(periodIndex) > 1)
+          periodStr2 <- periodStr[periodIndex[1]:periodIndex[2]]
+        else
+          periodStr2 <-periodStr[periodIndex]
+        
         # Plotting places of interest
         by_date_id <- empLocation %>%
-          filter(between(date, input$Date[1],input$Date[2]) & id %in% input$emp_data)
+          filter(between(date, input$Date[1],input$Date[2]) & id %in% input$emp_data & period %in% periodStr2)
         by_date_id$date <- factor(as.Date(by_date_id$date))
         gps_sf_path <- st_as_sf(by_date_id, coords = c("long", "lat"), crs = 4326)  %>%
           st_cast("POINT")
         
         # Plotting selected employee's route
         by_date_id_gps <- gps %>%
-          filter(between(date, input$Date[1],input$Date[2]) & id %in% input$emp_data) 
+          filter(between(date, input$Date[1],input$Date[2]) & id %in% input$emp_data & period %in% periodStr2) 
         by_date_id_gps$date <- factor(as.Date(by_date_id_gps$date))
+        
         gps_emp_path <-st_as_sf(by_date_id_gps, coords = c("long", "lat"), crs = 4326) %>%
           group_by(id) %>%
           summarize(m = mean(Timestamp),
@@ -168,10 +149,20 @@ AbilaServer <- function(id){
     output$ccTable <- DT::renderDataTable({
       input$apply_changes
       isolate({
-        DT::datatable(data = ccLoyalty %>%
-                        filter(between(date, input$Date[1],input$Date[2]) & CarID %in% input$emp_data),
+        
+        periodIndex <- match(input$timeperiod, periodStr)
+        
+        if(length(periodIndex) > 1)
+          periodStr2 <- periodStr[periodIndex[1]:periodIndex[2]]
+        else
+          periodStr2 <-periodStr[periodIndex]
+
+        filteredData <- ccLoyalty %>%
+          filter(between(date, input$Date[1],input$Date[2]) & CarID %in% input$emp_data & period %in% periodStr2)
+        
+        DT::datatable(data = filteredData,
                       options = list(pageLength = 10),
-                      rownames = FALSE)
+                      rownames = FALSE)  
       })
     })
   })

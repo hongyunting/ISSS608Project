@@ -28,7 +28,7 @@ ui <- fluidPage(
                         exploreUI("jitterplot")
                         ), 
                tabPanel("GPS Tracking", fluid = TRUE, 
-                        titlePanel("Tracing GAStech's Assigned Car"),
+                        titlePanel("Tracing GAStech's Employee(s) Movement"),
                         tags$head(
                           tags$style(HTML("
                              .multicol {
