@@ -159,7 +159,7 @@ However, based on the transaction details from below, they paid their bills sepa
 
 The iSpy prototype has its potential to be extended in the future. More visual components such as calendar view of semantic places can be added into the applications to complement the spatial analysis. This expands the dimensionality of the data objects and could potentially bring in more insights.
 
-The geo-spatial analysis could be further enhanced with the use of [moveVis](http://movevis.org/) package to dynamically visualize movement data by creating video animations. This aims the visual interpretations of the movement patterns with traces following the timestamps in sequences.
+The geo-spatial analysis could be further enhanced with the use of [moveVis](http://movevis.org/) package to dynamically visualize movement data by creating video animations. This aids the visual interpretations of the movement patterns with traces following the timestamps in sequences.
 
 
 # Acknowledgement 
