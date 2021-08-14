@@ -35,23 +35,23 @@ Appropriate visual approaches could largely reduce tediousness to scan through n
 
 However, real-life data is usually in different formats and users often need to spend much effort to perform analysis separately and draw meaningful insights. With the general lack of effective and easy to use web-enabled interactive and integrated applications for investigation, this project aims to build and publish an interactive RShiny web applications prototype to integrate different visual analysis together. The project attempts to enable the following analysis:  
 
-1. To reveal city location hot-spots based on the spending data and detect spending anomaly. The location data and the time of spending were split into different categories to sharpen the analysis. Investigators are able to scale down the scope of analysis with more focus on specific segments with the use of selections. 
+1. To reveal city location hot-spots based on the spending data and to detect spending anomaly. The location data and the time of spending were split into different categories to sharpen the analysis. Investigators are able to scale down the scope of analysis with more focus on specific segments with the use of selections. 
 
-2. To create an interactive map visualization framework that supports selection of time frame as well as employees. movement patterns of one or more employees are displayed to discover abnormal behaviours and unofficial relationships.
+2. To create an interactive map visualization framework that supports selection of time frame as well as employees. movement patterns of one or more employees are displayed to discover abnormal behaviors and unofficial relationships.
 
 3. To build a timeline analysis for the chaotic night on 23rd based on text analytics. Leveraging on topic modelling techniques, meaningful themes are extracted from the massive amount of text data to help investigators form better understanding on the occurrence of events.
 
 
 # Review and Critics
 
-There has been work done on the map visualisations from the previous VAST Challenge submissions. Many teams have adopted the geo-visual approaches by adding the background map to reveal daily patterns of each individual and the potential relationships among the employees.
+There has been work done on the map visualizations from the previous VAST Challenge submissions. Many teams have adopted the geo-visual approaches by adding the background map to reveal daily patterns of each individual and the potential relationships among the employees.
 
 One of the example is from the team of Central South University. Through the combination of gps data and geo-referenced map, the team was able to visualize the movement patterns and clearly identify visited spots. However, the visual is hard-coded with static text labels as explanatory notes and hence the team needs to adjust the codes when tracks of other employees on other days are of the interest for the investigators. 
 
 ![](VAPaper_IMG/01.png)
 *Fig 1. Team of Central South University, VAST 2014 MC2 Submission*
 
-Furthermore, by and large, most of the team submissions do not provide detailed information for the focused employees hence the investigators may need to manually collect these information as well. 
+Furthermore, by and large, most of the team submissions do not provide other related information such as credit card transaction histories for the focused employees hence the investigators may need to manually collect these information as well. 
 
 One way to overcome these potential pitfalls on the geo-visual analysis is to leverage on interactive map with the flexibility of taking into variables based on user selections. A dynamic table of relevant information can also be displayed alongside to show the detailed information.
 
@@ -81,7 +81,7 @@ A selection panel is displayed on the top of the page with two drop-down lists. 
 
 The jitter plot on the left side displays each transaction at each location. The jitter plot is useful in identifying the anomaly from the clustered expenditures. For example, there is one transaction of *$10,000* from Frydos Autosupply n' More whilst rest of the transactions from the shop are below *$1,000*. An interactive tooltip displaying details of the transaction is shown when hovering around the particular transaction. 
 
-The histogram plot on the right side displays the distribution of the transactions at each location. The plot is able to show the hot spots at different time period and when they are popular. A diverging colour scheme 'spectral' is applied to clearly differentiate different time periods.
+The histogram plot on the right side displays the distribution of the transactions at each location. The plot is able to show the hot spots during different time period and when they are popular. A diverging colour scheme 'spectral' is applied to clearly differentiate the time periods.
 
 ## Geo-visual Analysis 
 
@@ -139,6 +139,7 @@ The geo-visual analysis reveals official and unofficial relationships of the emp
 
 ![](VAPaper_IMG/08.png)
 *Fig 8. Executives Golf sessions on 12th Jan*
+
 Furthermore, there were several Chostus Hotel Meetups by Elsa Orilla and Brand Tempestad during midday lunch hours on 8th, 10th, 14th and 17th. Their homes seem located at the same building as well. 
 
 ![](VAPaper_IMG/09.png)
