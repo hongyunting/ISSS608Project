@@ -15,9 +15,20 @@ ui <- fluidPage(
     
     #Navbar structure for UI
     navbarPage("iSpy - Aliba, Kronos", theme = shinytheme("lumen"),
-               tabPanel("Exploratory Data Analysis", fluid = TRUE), 
+               tabPanel("Exploratory Data Analysis", fluid = TRUE,
+                        titlePanel("Exploratory Data Analysis"),
+                        tags$head(
+                          tags$style(HTML("
+                             .multicol {
+                               -webkit-column-count: 3; /* Chrome, Safari, Opera */
+                               -moz-column-count: 3; /* Firefox */
+                               column-count: 3;
+                            }
+                       "))),
+                        exploreUI("jitterplot")
+                        ), 
                tabPanel("GPS Tracking", fluid = TRUE, 
-                        titlePanel("Tracing GAStech's Assigned Car"),
+                        titlePanel("Tracing GAStech's Employee(s) Movement"),
                         tags$head(
                           tags$style(HTML("
                              .multicol {
@@ -33,6 +44,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   AbilaServer("abilaPlot")
+  exploreServer("jitterplot")
 }
 
 # Run the application 
