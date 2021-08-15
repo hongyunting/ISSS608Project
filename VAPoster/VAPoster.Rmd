@@ -7,13 +7,16 @@ title: iSpy - An Interactive Visual Application for Exploring GAStech Employees 
 author:
   - name: '**Hong Yun Ting'**
     email: ythong.2019@mitb.smu.edu.sg
-    affiliation: Singapore Management University
+    main: true
+    affil: 1
   - name: '**Li ShuXian'**
     email: shuxian.li.2020@mitb.smu.edu.sg
-    affiliation: Singapore Management University
+    main: true
+    affil: 1
   - name: '**Yang Xu'**
     email: xu.yang.2020@mitb.smu.edu.sg
-    affiliation: Singapore Management University
+    main: true
+    affil: 1
 #color theme
 primary_colour: '#1a17b3'
 secondary_colour: '#1a17b3'
