@@ -94,7 +94,7 @@ library(stringi)
 library(clock)
 
 # Define UI for application
-exploreUI <- function(id){
+textUI <- function(id){
   fluidPage(
   fluidRow(
     column(4,pickerInput(NS(id,'datatype'),label='Datatype',
@@ -121,7 +121,7 @@ exploreUI <- function(id){
 }            
 
 # Define server function
-exploreServer <- function(id){
+textServer <- function(id){
   moduleServer(id, function(input, output, session){
   #word cloud
   output$wordcloud <-renderPlotly({
