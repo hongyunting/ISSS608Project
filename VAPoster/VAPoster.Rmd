@@ -14,8 +14,6 @@ abstract: |
   Leveraging on the power of visual analytics, this paper discusses the development of a prototype of interactive web application using Rshiny. With the focus of enabling efficient investigations, the prototype aims to transform information of various data formats into insightful visuals using the analytical approaches.
 
 column_numbers: 3
-logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
-logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 output: 
   posterdown::posterdown_html:
     self_contained: false
@@ -41,8 +39,22 @@ The local company GAStech reported missing employees while multiple major outbre
 
 
 
-# Results
+# Findings
 
+#### Exploratory Data Analysis
+
+![](VAPaper/VAPaper_IMG/02.png)
+*Fig 1. First Tab Layout*
+There are 3 kinds of locations based on its nature: F&B, Work and Lifestyle. Transactions are categorized into 5 types: Morning, Lunch, Afternoon, Dinner and Midnight. ‘Lunch’ and ‘Dinner’ periods are specially segregated as many F&B locations have high transactions during these two periods.
+
+The jitter plot on the *left* side displays each transaction at each location.The jitter plot is useful in identifying the **anomaly** from the clustered expenditures. The histogram plot on the *right* side displays the distribution of the transactions at each location.The plot is able to show the hot spots during different time period and when they are popular. 
+
+![](VAPaper/VAPaper_IMG/10.png)
+*Fig 2. transactionns of Elsa Orilla and Brand Tempestad on 10th Jan at Chostus Hotel*
+
+Two plots from the exploratory analsis tab work together to provide evidences on the suspicious activities. With a focused on work-related location histogram shown on Fig2,it is discovered that Frydos Autosupply n’ More have transactions during the dinner and night hours whilst the rest of the work-related locations do not disply such patterns.With addition to the abnormal spending amount discovered from the jitter plot. Frydos Autosupply n’ More could be circled as a location worthy more investigations.
+
+#### Geo-visual Analysis
 
 
 
