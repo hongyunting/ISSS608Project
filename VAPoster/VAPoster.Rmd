@@ -39,9 +39,7 @@ The local company GAStech reported missing employees while multiple major outbre
 
 
 
-# Findings
-
-#### Exploratory Data Analysis
+# Exploratory Data Analysis
 
 ![](VAPaper/VAPaper_IMG/02.png)
 *Fig 1. First Tab Layout*
@@ -54,10 +52,40 @@ The jitter plot on the *left* side displays each transaction at each location.Th
 
 Two plots from the exploratory analsis tab work together to provide evidences on the suspicious activities. With a focused on work-related location histogram shown on Fig2,it is discovered that Frydos Autosupply n’ More have transactions during the dinner and night hours whilst the rest of the work-related locations do not disply such patterns.With addition to the abnormal spending amount discovered from the jitter plot. Frydos Autosupply n’ More could be circled as a location worthy more investigations.
 
-#### Geo-visual Analysis
+# Geo-visual Analysis
 
+Geo-spatial approach is useful to track employees’ movement patterns through space and time.The geo-visual analysis reveals official and unofficial relationships of the employees which are helpful evidences for investigations. For example, it is discovered that 3 Executives of GASTech ,Ingrid Barranco, Ada Campo-Corrente
+and Willem Vasco-Pais met at Desafio Golf Course on 12th, January.
 
+![]((VAPaper/VAPaper_IMG/08.png)
+*Fig 3. Executives Golf sessions on 12th Jan*
 
+Furthermore, there were several Chostus Hotel Meetups by Elsa Orilla and Brand Tempestad during midday lunch hours on 8th, 10th, 14th and 17th. Their homes seem located at the same building as well.
+![](VAPaper/VAPaper_IMG/09.png)
+*Fig 4. Traces of Elsa Orilla and Brand Tempestad on 10th Jan*
+
+However, based on the transaction details from below, they paid their bills separately.
+![](VAPaper/VAPaper_IMG/10.png)
+*Fig 5. transactionns of Elsa Orilla and Brand Tempestad on 10th Jan at Chostus Hotel*
+
+# Text Analysis
+
+Text analytics extracted frequent terms, word cloud and topic distribution from miniblogs and calls. With the aid of visual analytics, readers can look at the graphs instead of bunch of words. The page is designed to show the readers how word clouds, term frequency and topic distribution change over time. Firstly, readers can choose which information source they are more interested: miniblog or emergency calls. Secondly, they can choose detailed time period to focus on. Date is dropped in the column since it happened in the same day. Time are cut off by every 60 minutes start from 5 pm to 9 pm. 
+
+![](VAPaper/VAPaper_IMG/11.png)
+*Fig 6. Wordcloud of the events*
+
+![](VAPaper/VAPaper_IMG/12.png)
+*Fig 7. Blog term frequency by hours*
+
+![](VAPaper/VAPaper_IMG/13.png)
+*Fig 8. Topic Distribution by hours*
+
+There are 4 incidents we can conclude from the charts shown above. 
+1. At 6 pm, a fire started in the apartment dancing dolphin at 6 pm. The neighborhood evacuated themselves at 7 pm as the fire went stronger. People called fire station so firefighters came at 8 pm. The fire spreading is too fast to put out and injured the firefighters. Eventually, the fire caused explosion at 9 pm. Abila police arrested the suspects who started the fire. 
+2. At 7 pm, there was a shot fired by the officer.
+3. At 7 pm, there was also a hit and run accident caused by a black van. 
+4. There was a gathering event for Pok rally in Abila Park. Kronosstar is one of the key member from the organization. 
 
 # Conclusion
 In this work we presented an integrated visual analytics dashboard for public and government analysis of tracking data, history of credit card, loyalty card and social media data. Multiple text mining, visualisation techniques were applied to further investigate things happened in Abila city in 2014. Abnormal behaviors were discovered. 
