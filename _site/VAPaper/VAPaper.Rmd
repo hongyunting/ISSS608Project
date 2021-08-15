@@ -12,7 +12,6 @@ author:
     affiliation: Singapore Management University
 abstract: |
   Leveraging on the power of visual analytics, this paper discusses the development of a prototype of interactive web application using Rshiny. With the focus of enabling efficient investigations, the prototype aims to transform information of various data formats into insightful visuals using the analytical approaches.
-
 bibliography: sigproc.bib
 csl: acm-sig-proceedings.csl
 output: rticles::acm_article
@@ -115,9 +114,16 @@ The multi-layer map has the flexibility of zooming in and out as well as choosin
 
 ## Text Analysis 
 
-Text analytics extracted frequent terms, word cloud and topic distribution from miniblogs and calls. With the aid of visual analytics, readers can look at the graphs instead of bunch of words. The page is designed to show the readers how word clouds, term frequency and topic distribution change over time. Firstly, readers can choose which information source they are more interested: miniblog or emergency calls. Secondly, they can choose detailed time period to focus. 
+Text analytics extracted frequent terms, word cloud and topic distribution from miniblogs and calls. With the aid of visual analytics, readers can look at the graphs instead of bunch of words. The page is designed to show the readers how word clouds, term frequency and topic distribution change over time. Firstly, readers can choose which information source they are more interested: miniblog or emergency calls. Secondly, they can choose detailed time period to focus on. Date is dropped in the column since it happened in the same day. Time are cut off by every 60 minutes start from 5 pm to 9 pm. 
 
-- TODO: placeholder for Text analytics page design 
+![](VAPaper_IMG/11.png)
+*Fig 7. Wordcloud of the events*
+
+![](VAPaper_IMG/12.png)
+*Fig 8. Blog term frequency by hours*
+
+![](VAPaper_IMG/13.png)
+*Fig 9. Topic Distribution by hours*
 
 # Demonstration and Use Cases
 
@@ -134,28 +140,35 @@ Two plots from the exploratory analsis tab work together to provide evidences on
 
 
 ![](VAPaper_IMG/03.png)
-*Fig 7. Number of transactions at each work-related location at different time*
+*Fig 10. Number of transactions at each work-related location at different time*
 
 ## Geo-visual Analysis
 The geo-visual analysis reveals official and unofficial relationships of the employees which are helpful evidences for investigations. For example, it is discovered that 3 Executives of GASTech ,Ingrid Barranco, Ada Campo-Corrente and Willem Vasco-Pais met at Desafio Golf Course on 12th, January.
 
 ![](VAPaper_IMG/08.png)
-*Fig 8. Executives Golf sessions on 12th Jan*
+*Fig 11. Executives Golf sessions on 12th Jan*
 
 Furthermore, there were several Chostus Hotel Meetups by Elsa Orilla and Brand Tempestad during midday lunch hours on 8th, 10th, 14th and 17th. Their homes seem located at the same building as well. 
 
 ![](VAPaper_IMG/09.png)
-*Fig 9. Traces of Elsa Orilla and Brand Tempestad on 10th Jan*
+*Fig 12. Traces of Elsa Orilla and Brand Tempestad on 10th Jan*
 
 However, based on the transaction details from below, they paid their bills separately.
 
 ![](VAPaper_IMG/10.png)
-*Fig 10. transactionns of Elsa Orilla and Brand Tempestad on 10th Jan at Chostus Hotel*
+*Fig 13. transactionns of Elsa Orilla and Brand Tempestad on 10th Jan at Chostus Hotel*
 
 
 ## Text Analysis 
+There are 4 incidents we can conclude from the charts shown above. 
 
-- TODO: placeholder for Text analytics page design 
+- At 6 pm, a fire started in the apartment dancing dolphin at 6 pm. The neighborhood evacuated themselves at 7 pm as the fire went stronger. People called fire station so firefighters came at 8 pm. The fire spreading is too fast to put out and injured the firefighters. Eventually, the fire caused explosion at 9 pm. Abila police arrested the suspects who started the fire. 
+
+- At 7 pm, there was a shot fired by the officer.
+
+- At 7 pm, there was also a hit and run accident caused by a black van. 
+
+- There was a gathering event for Pok rally in Abila Park. Kronosstar is one of the key member from the organization. 
 
 # Future Work
 
@@ -190,5 +203,3 @@ references:
   issued:
     year: 2005
     month: 3
-...
-
