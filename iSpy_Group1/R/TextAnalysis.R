@@ -138,7 +138,8 @@ eventUI <- function(id){
     ),
     mainPanel(
       plotOutput(NS(id,"wordcloud"), width = "1000px", height = "700px"),
-      plotlyOutput(NS(id,"wordFreq"), width = "1000px", height = "700px")
+      plotlyOutput(NS(id,"wordFreq"), width = "1000px", height = "700px"),
+      plotlyOutput(NS(id,"topicDist"), width = "1000px", height = "700px")
     )
   )
 }            
@@ -191,6 +192,27 @@ eventServer <- function(id){
         labs(x ='mean tf-idf_score',y= NULL) +
         ggtitle("Blog Term Frequency by hour")
       
+      ggplotly(p)
+    })
+    
+    output$topicDist <- renderPlotly({
+      period <- unlist(input$timeperiod)
+      
+      blogDTM <-blog_topic %>%
+        filter(time_bin %in% period) %>%
+        cast_dtm(time_bin,word,n)
+
+      blogLDA <-LDA(blogDTM, k = 20, control = list(seed = 1234)) 
+      topicProb <- tidy(blogLDA, matrix = "beta")
+      
+      blogGamma<-tidy(blogLDA, matrix = "gamma")%>%group_by(document)
+      
+      p <- ggplot(blogGamma %>%
+                    mutate(title = reorder(document, gamma * topic)),
+                  aes(factor(topic), gamma)) +
+        geom_boxplot() +
+        ggtitle("Blog:Topic Distribution over time")+
+        facet_wrap(~ title)
       ggplotly(p)
     })
   })
