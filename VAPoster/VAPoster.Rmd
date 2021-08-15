@@ -41,13 +41,14 @@ The local company GAStech reported missing employees while multiple major outbre
 
 # Exploratory Data Analysis
 
-![](VAPoster_files/02.png){width=50%}
+![](VAPoster_files/02.png){width=90%}
 *Fig 1. First Tab Layout*
+
 There are 3 kinds of locations based on its nature: F&B, Work and Lifestyle. Transactions are categorized into 5 types: Morning, Lunch, Afternoon, Dinner and Midnight. ‘Lunch’ and ‘Dinner’ periods are specially segregated as many F&B locations have high transactions during these two periods.
 
 The jitter plot on the *left* side displays each transaction at each location.The jitter plot is useful in identifying the **anomaly** from the clustered expenditures. The histogram plot on the *right* side displays the distribution of the transactions at each location.The plot is able to show the hot spots during different time period and when they are popular. 
 
-![](VAPoster_files/10.png){width=60%}
+![](VAPoster_files/10.png){width=90%}
 *Fig 2. transactionns of Elsa Orilla and Brand Tempestad on 10th Jan at Chostus Hotel*
 
 Two plots from the exploratory analsis tab work together to provide evidences on the suspicious activities. With a focused on work-related location histogram shown on Fig2,it is discovered that Frydos Autosupply n’ More have transactions during the dinner and night hours whilst the rest of the work-related locations do not disply such patterns.With addition to the abnormal spending amount discovered from the jitter plot. Frydos Autosupply n’ More could be circled as a location worthy more investigations.
@@ -57,12 +58,12 @@ Two plots from the exploratory analsis tab work together to provide evidences on
 Geo-spatial approach is useful to track employees’ movement patterns through space and time.The geo-visual analysis reveals official and unofficial relationships of the employees which are helpful evidences for investigations. For example, it is discovered that 3 Executives of GASTech ,Ingrid Barranco, Ada Campo-Corrente
 and Willem Vasco-Pais met at Desafio Golf Course on 12th, January.
 
-![](VAPoster_files/08.png){width=70%}
+![](VAPoster_files/08.png){width=90%}
 *Fig 3. Executives Golf sessions on 12th Jan*
 
 Furthermore, there were several Chostus Hotel Meetups by Elsa Orilla and Brand Tempestad during midday lunch hours on 8th, 10th, 14th and 17th. Their homes seem located at the same building as well.
 
-![](VAPoster_files/09.png){width=80%}
+![](VAPoster_files/09.png){width=90%}
 *Fig 4. Traces of Elsa Orilla and Brand Tempestad on 10th Jan*
 
 However, based on the transaction details from below, they paid their bills separately.
@@ -77,10 +78,10 @@ Text analytics extracted frequent terms, word cloud and topic distribution from 
 ![](VAPoster_files/11.png){width=90%}
 *Fig 6. Wordcloud of the events*
 
-![](VAPoster_files/12.png){width=100%}
+![](VAPoster_files/12.png){width=90%}
 *Fig 7. Blog term frequency by hours*
 
-![](VAPoster_files/13.png)
+![](VAPoster_files/13.png){width=90%}
 *Fig 8. Topic Distribution by hours*
 
 There are 4 incidents we can conclude from the charts shown above. 
