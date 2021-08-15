@@ -4,48 +4,48 @@
       "path": "index.html",
       "title": "iSpy",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2021-08-15T01:58:34+08:00"
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-08-15T14:01:04+08:00"
     },
     {
       "path": "Poster.html",
       "title": "Poster",
       "description": "Some additional details about the blog",
       "author": [],
-      "contents": "\n  \n    This browser does not support PDFs. Please download the PDF to view it: Download PDF.\n    \n\n\n\n\n",
-      "last_modified": "2021-08-13T23:02:35+08:00"
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-08-15T14:01:07+08:00"
     },
     {
       "path": "Proposal.html",
       "title": "Proposal",
       "description": "Some additional details about the blog",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2021-08-07T00:48:56+08:00"
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-08-15T14:01:09+08:00"
     },
     {
       "path": "ResearchPaper.html",
       "title": "Research Paper",
       "description": "Some additional details about the blog",
       "author": [],
-      "contents": "\n  \n    This browser does not support PDFs. Please download the PDF to view it: Download PDF.\n  \n\n\n\n",
-      "last_modified": "2021-08-13T23:04:07+08:00"
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-08-15T14:01:11+08:00"
     },
     {
       "path": "RShinyApplication.html",
       "title": "iSpy Shiny Application",
       "description": "GAStech Tracking System using R and Shiny\nPlease allow a few seconds for R Shiny to load up\n",
       "author": [],
-      "contents": "\n\n\n\n\n \n\n",
-      "last_modified": "2021-08-11T23:31:21+08:00"
+      "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\niSpy\r\n\r\n\r\nHome\r\nProposal\r\nApplication (R Shiny)\r\nUser Guide\r\nPoster\r\nResearch Paper\r\n☰\r\n\r\n\r\n  \r\n    \r\n      \r\n        \r\n        \r\n        \r\n      \r\n      \r\n    \r\n    \r\n      \r\n  Home\r\n\r\n\r\n  Proposal\r\n\r\n\r\n  Application (R Shiny)\r\n\r\n\r\n  User Guide\r\n\r\n\r\n  Poster\r\n\r\n\r\n  Research Paper\r\n\r\n      \r\n  \r\n\r\n\r\n\r\n\r\n\r\n\r\niSpy Shiny Application\r\n\r\n\r\n\r\n\r\nlibrary(shiny)\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n// add bootstrap table styles to pandoc tables\r\nfunction bootstrapStylePandocTables() {\r\n  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');\r\n}\r\n$(document).ready(function () {\r\n  bootstrapStylePandocTables();\r\n});\r\n\r\n\r\n\r\n$(document).ready(function () {\r\n  window.buildTabsets(\"section-TOC\");\r\n});\r\n\r\n$(document).ready(function () {\r\n  $('.tabset-dropdown > .nav-tabs > li').click(function () {\r\n    $(this).parent().toggleClass('nav-tabs-open');\r\n  });\r\n});\r\n\r\n  (function () {\r\n    var script = document.createElement(\"script\");\r\n    script.type = \"text/javascript\";\r\n    script.src  = \"https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\";\r\n    document.getElementsByTagName(\"head\")[0].appendChild(script);\r\n  })();\r\n",
+      "last_modified": "2021-08-15T14:01:13+08:00"
     },
     {
       "path": "UserGuide.html",
       "title": "User Guide",
       "description": "Some additional details about the blog",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2021-08-07T01:11:41+08:00"
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-08-15T14:01:14+08:00"
     }
   ],
   "collections": ["posts/posts.json"]
