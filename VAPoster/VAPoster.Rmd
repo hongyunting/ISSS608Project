@@ -12,7 +12,10 @@ author:
     affiliation: Singapore Management University
 abstract: |
   Leveraging on the power of visual analytics, this paper discusses the development of a prototype of interactive web application using Rshiny. With the focus of enabling efficient investigations, the prototype aims to transform information of various data formats into insightful visuals using the analytical approaches.
-
+#color theme
+primary_colour: '#1a17b3'
+secondary_colour: '#1a17b3'
+accent_colour: '#00A699'
 column_numbers: 3
 output: 
   posterdown::posterdown_html:
