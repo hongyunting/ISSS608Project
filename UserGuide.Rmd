@@ -1,7 +1,7 @@
 ---
 title: "iSpy Application User Guide"
 description: |
-  This blog provide a handy guide to navigate the Shiny application 
+  A handy guide to navigate the Shiny application 
 ---
 
 ```{r setup, include=FALSE}
