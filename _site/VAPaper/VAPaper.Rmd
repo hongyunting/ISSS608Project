@@ -115,6 +115,8 @@ The multi-layer map has the flexibility of zooming in and out as well as choosin
 
 ## Text Analysis 
 
+Text analytics extracted frequent terms, word cloud and topic distribution from miniblogs and calls. With the aid of visual analytics, readers can look at the graphs instead of bunch of words. The page is designed to show the readers how word clouds, term frequency and topic distribution change over time. Firstly, readers can choose which information source they are more interested: miniblog or emergency calls. Secondly, they can choose detailed time period to focus. 
+
 - TODO: placeholder for Text analytics page design 
 
 # Demonstration and Use Cases
