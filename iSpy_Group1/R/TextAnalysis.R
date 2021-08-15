@@ -77,15 +77,25 @@ pr_stem_words(raw_text,clean_message,language = "english")
 raw_text$time_bin = cut(raw_text$`date(yyyyMMddHHmmss)`, breaks="60 mins")
 raw_text$time_bin<-raw_text$time_bin %>% str_replace_all("2014-01-23 ","")
 raw_text$time_bin <- raw_text$time_bin %>%
-    gsub(pattern ='17:00:00',replacement = "5pm",raw_text$message)%>%
-    gsub(pattern ='18:00:00',replacement = "6pm",raw_text$message)%>%
-    gsub(pattern ='19:00:00',replacement = "7pm",raw_text$message)%>%
-    gsub(pattern ='20:00:00',replacement = "8pm",raw_text$message)%>%
-    gsub(pattern ='21:00:00',replacement = "9pm",raw_text$message)
+    gsub(pattern ='17:00:00',replacement = "5pm",raw_text$time_bin)%>%
+    gsub(pattern ='18:00:00',replacement = "6pm",raw_text$time_bin)%>%
+    gsub(pattern ='19:00:00',replacement = "7pm",raw_text$time_bin)%>%
+    gsub(pattern ='20:00:00',replacement = "8pm",raw_text$time_bin)%>%
+    gsub(pattern ='21:00:00',replacement = "9pm",raw_text$time_bin)
+    
 
 #### 1.5 split into blog and text transcripts of emergency call
 blog <- filter(raw_text,type=='mbdata')
 call <- filter(raw_text,type=='ccdata')
+
+### 1.5.1 Blog Topic
+#create new column: ID and Time, bin time for every hour for blog
+blog$ID <- seq.int(nrow(blog))
+
+blog_topic<-blog%>%
+  group_by(time_bin) %>% 
+  unnest_tokens(word, clean_message) %>%
+  count(word, sort = TRUE)
 
 # Load packages
 library(shiny)
@@ -118,7 +128,7 @@ eventUI <- function(id){
                              '9pm' = '9pm'),
                   selected = "5pm",
                   options = list(`actions-box` = TRUE),
-                  multiple = T),
+                  multiple = F),
       sliderInput(NS(id,"freq"),
                   "Minimum Frequency:",
                   min = 1,  max = 50, value = 15),
@@ -127,7 +137,9 @@ eventUI <- function(id){
                   min = 1,  max = 200,  value = 100)
     ),
     mainPanel(
-      plotOutput(NS(id,"wordcloud"), width = "1000px", height = "700px")
+      plotOutput(NS(id,"wordcloud"), width = "1000px", height = "700px"),
+      plotlyOutput(NS(id,"wordFreq"), width = "1000px", height = "700px"),
+      plotlyOutput(NS(id,"topicDist"), width = "1000px", height = "700px")
     )
   )
 }            
@@ -137,12 +149,12 @@ eventServer <- function(id){
   moduleServer(id, function(input, output, session){
     #word cloud
     output$wordcloud <-renderPlot({
-      type <- unlist(input$datatype)
+      types <- unlist(input$datatype)
       period <- unlist(input$timeperiod)
       
       #text transform: convert dataframe to corpus
       cleanMsg <- raw_text %>% 
-        filter(type %in% type & time_bin %in% period)
+        filter(type %in% types & time_bin %in% period)
       
       docs <- Corpus(VectorSource(as.character(cleanMsg$clean_message)))
       
@@ -159,6 +171,49 @@ eventServer <- function(id){
       wordcloud(words = df$word, freq = df$freq, min.freq = input$freq, max.words=input$max,
                 colors=brewer.pal(8, "Dark2"))
       
+    })
+    
+    output$wordFreq <- renderPlotly({
+      period <- unlist(input$timeperiod)
+      
+      tf_idf <- blog_topic%>%
+        bind_tf_idf(word,time_bin, n) %>%
+        arrange(desc(tf_idf))  %>%
+        filter(time_bin %in% period)
+      
+      p <- ggplot(tf_idf %>%
+                    group_by(time_bin) %>%
+                    slice_max(tf_idf,n =10) %>%
+                    ungroup() %>%
+                    mutate(word = reorder(word,tf_idf)),
+                  aes(tf_idf,word,fill = time_bin)) +
+        geom_col(show.legend = FALSE) +
+        facet_wrap(~ time_bin,scales = "free",as.table=TRUE) +
+        labs(x ='mean tf-idf_score',y= NULL) +
+        ggtitle("Blog Term Frequency by hour")
+      
+      ggplotly(p)
+    })
+    
+    output$topicDist <- renderPlotly({
+      period <- unlist(input$timeperiod)
+      
+      blogDTM <-blog_topic %>%
+        filter(time_bin %in% period) %>%
+        cast_dtm(time_bin,word,n)
+
+      blogLDA <-LDA(blogDTM, k = 20, control = list(seed = 1234)) 
+      topicProb <- tidy(blogLDA, matrix = "beta")
+      
+      blogGamma<-tidy(blogLDA, matrix = "gamma")%>%group_by(document)
+      
+      p <- ggplot(blogGamma %>%
+                    mutate(title = reorder(document, gamma * topic)),
+                  aes(factor(topic), gamma)) +
+        geom_boxplot() +
+        ggtitle("Blog:Topic Distribution over time")+
+        facet_wrap(~ title)
+      ggplotly(p)
     })
   })
 }
