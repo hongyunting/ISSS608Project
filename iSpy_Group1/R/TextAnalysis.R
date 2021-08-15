@@ -88,6 +88,15 @@ raw_text$time_bin <- raw_text$time_bin %>%
 blog <- filter(raw_text,type=='mbdata')
 call <- filter(raw_text,type=='ccdata')
 
+### 1.5.1 Blog Topic
+#create new column: ID and Time, bin time for every hour for blog
+blog$ID <- seq.int(nrow(blog))
+
+blog_topic<-blog%>%
+  group_by(time_bin) %>% 
+  unnest_tokens(word, clean_message) %>%
+  count(word, sort = TRUE)
+
 # Load packages
 library(shiny)
 library(shinythemes)
@@ -128,7 +137,8 @@ eventUI <- function(id){
                   min = 1,  max = 200,  value = 100)
     ),
     mainPanel(
-      plotOutput(NS(id,"wordcloud"), width = "1000px", height = "700px")
+      plotOutput(NS(id,"wordcloud"), width = "1000px", height = "700px"),
+      plotlyOutput(NS(id,"wordFreq"), width = "1000px", height = "700px")
     )
   )
 }            
@@ -143,7 +153,7 @@ eventServer <- function(id){
       
       #text transform: convert dataframe to corpus
       cleanMsg <- raw_text %>% 
-        filter(type %in% types & time_bin %in% period)
+        filter(types %in% type & time_bin %in% period)
       
       docs <- Corpus(VectorSource(as.character(cleanMsg$clean_message)))
       
@@ -160,6 +170,28 @@ eventServer <- function(id){
       wordcloud(words = df$word, freq = df$freq, min.freq = input$freq, max.words=input$max,
                 colors=brewer.pal(8, "Dark2"))
       
+    })
+    
+    output$wordFreq <- renderPlotly({
+      period <- unlist(input$timeperiod)
+      
+      tf_idf <- blog_topic%>%
+        bind_tf_idf(word,time_bin, n) %>%
+        arrange(desc(tf_idf))  %>%
+        filter(time_bin %in% period)
+      
+      p <- ggplot(tf_idf %>%
+                    group_by(time_bin) %>%
+                    slice_max(tf_idf,n =10) %>%
+                    ungroup() %>%
+                    mutate(word = reorder(word,tf_idf)),
+                  aes(tf_idf,word,fill = time_bin)) +
+        geom_col(show.legend = FALSE) +
+        facet_wrap(~ time_bin,scales = "free",as.table=TRUE) +
+        labs(x ='mean tf-idf_score',y= NULL) +
+        ggtitle("Blog Term Frequency by hour")
+      
+      ggplotly(p)
     })
   })
 }
