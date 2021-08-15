@@ -35,10 +35,6 @@ The local company GAStech reported missing employees while multiple major outbre
 2. To create an interactive map visualization framework that supports selection of time frame as well as employees. Movement patterns of one or more employees are displayed to discover abnormal behaviors and unofficial relationships.
 3. To build a timeline analysis for the chaotic night on 23rd based on text analytics. Leveraging on topic modelling techniques are extracted from the massive amount of text data to help investigators form better understanding on the occurrence of events.
 
-# Methods
-
-
-
 # Exploratory Data Analysis
 
 ![](VAPoster_files/02.png){width=90%}
