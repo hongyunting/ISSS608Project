@@ -21,7 +21,8 @@ Google fonts api stuff
 
 <title>iSpy - An Interactive Visual Application for Exploring GAStech Employees Movement Data and Aliba, Kronos Events</title>
 
-<script src="VAPoster_files/header-attrs-2.8/header-attrs.js"></script>
+
+<script src="VAPoster_files/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 
@@ -50,14 +51,14 @@ padding: 0cm;
 width: 45in;
 height: calc(38in * 0.15);
 overflow: hidden;
-background-color: #0b4545;
+background-color: #1a17b3;
 border: 0 solid #0b4545;
 }
 .logo_left {
 float: left;
 width: 10%;
 height: 100%;
-background-color: #0b4545;
+background-color: #1a17b3;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -66,7 +67,7 @@ justify-content: center;
 float: right;
 width: 10%;
 height: 100%;
-background-color: #0b4545;
+background-color: #1a17b3;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -119,9 +120,9 @@ column-rule-width: 1mm;
 -webkit-column-rule-style: dashed;
 -moz-column-rule-style: dashed;
 column-rule-style: dashed;
--webkit-column-rule-color: #0b4545;
--moz-column-rule-color: #0b4545;
-column-rule-color: #0b4545;
+-webkit-column-rule-color: #1a17b3;
+-moz-column-rule-color: #1a17b3;
+column-rule-color: #1a17b3;
 column-gap: 1em;
 padding-left: 0.5em;
 padding-right: 0.5em;
@@ -171,8 +172,8 @@ margin-bottom: 0;
 text-align: center;
 color: #FFFFFF;
 font-size: 65pt;
-border: 2mm solid #0b4545;
-background-color: #0b4545;
+border: 2mm solid #1a17b3;
+background-color: #1a17b3;
 border-radius: 4mm 0mm;
 margin-top: 2mm;
 margin-bottom: 2mm;
@@ -225,7 +226,7 @@ code {
 font-size: 1em;
 font-family: monospace;
 background-color: #00808024;
-color: #0b4545;
+color: #1a17b3;
 padding: 1.2mm;
 border-radius: 2mm;
 }
@@ -283,7 +284,7 @@ font-size: 20pt;
 <!-- Poster Title -->
 <div class= "poster_title">
 <h1 id="title">iSpy - An Interactive Visual Application for Exploring GAStech Employees Movement Data and Aliba, Kronos Events</h1>
-<h3 id="author"><strong>Hong Yun Ting</strong><sup>1</sup>, <strong>Li ShuXian</strong><sup>1</sup>, <strong>Yang Xu</strong><sup>1</sup></h3><br>
+<h3 id="author"><strong>Hong Yun Ting</strong><sup></sup>, <strong>Li ShuXian</strong><sup></sup>, <strong>Yang Xu</strong><sup></sup></h3><br>
 
 </div>
 <!-- Right Logo  -->
@@ -295,16 +296,18 @@ font-size: 20pt;
 <div class='poster_body'>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>The local company GAStech reported missing employees while multiple major outbreaks struck the city on the night of 23rd. To investigate the incidents, multiple sources of evidences have been collated:
-1. GAStech released a tracking data of 2 weeks leading up to the disappearance as GAStech provides many of their employees with company cars for personal and professional use. GAStech also provided credit card transaction and Kronos-Kares loyalty card usage data.
-2. Relevant microblog records that have been identified by automated filters and text transcripts of emergency dispatches by the Abila, Kronos local police and fire departments.</p>
+<p>The local company GAStech reported missing employees while multiple major outbreaks struck the city on the night of 23rd. To investigate the incidents, multiple sources of evidences have been collated:</p>
+<ol style="list-style-type: decimal">
+<li>GAStech released a tracking data of 2 weeks leading up to the disappearance as GAStech provides many of their employees with company cars for personal and professional use. GAStech also provided credit card transaction and Kronos-Kares loyalty card usage data.</li>
+<li>Relevant microblog records that have been identified by automated filters and text transcripts of emergency dispatches by the Abila, Kronos local police and fire departments.</li>
+</ol>
 </div>
 <div id="objectives" class="section level1">
 <h1>Objectives</h1>
 <ol style="list-style-type: decimal">
-<li>To reveal city location hot-spots based on the spending data and to detect spending anomaly. Investigators are able to scale down the scope of analysis with more focus on specific segments with the use of selections.</li>
-<li>To create an interactive map visualization framework that supports selection of time frame as well as employees. Movement patterns of one or more employees are displayed to discover abnormal behaviors and unofficial relationships.</li>
-<li>To build a timeline analysis for the chaotic night on 23rd based on text analytics. Leveraging on topic modelling techniques are extracted from the massive amount of text data to help investigators form better understanding on the occurrence of events.</li>
+<li>To reveal city location hot-spots based on the spending data and to detect spending anomaly.</li>
+<li>To display movement patterns of one or more employees to discover abnormal behaviors and unofficial relationships.</li>
+<li>To build a timeline analysis for the chaotic night on 23rd based on text analytics.</li>
 </ol>
 </div>
 <div id="exploratory-data-analysis" class="section level1">
@@ -313,8 +316,8 @@ font-size: 20pt;
 <p><em>Fig 1. First Tab Layout</em></p>
 <p>There are 3 kinds of locations based on its nature: F&amp;B, Work and Lifestyle. Transactions are categorized into 5 types: Morning, Lunch, Afternoon, Dinner and Midnight. ‘Lunch’ and ‘Dinner’ periods are specially segregated as many F&amp;B locations have high transactions during these two periods.</p>
 <p>The jitter plot on the <em>left</em> side displays each transaction at each location.The jitter plot is useful in identifying the <strong>anomaly</strong> from the clustered expenditures. The histogram plot on the <em>right</em> side displays the distribution of the transactions at each location.The plot is able to show the hot spots during different time period and when they are popular.</p>
-<p><img src="VAPoster_files/10.png" style="width:90.0%" /></p>
-<p><em>Fig 2. transactionns of Elsa Orilla and Brand Tempestad on 10th Jan at Chostus Hotel</em></p>
+<p><img src="VAPoster_files/03.png" style="width:90.0%" /></p>
+<p><em>Fig 2. Number of transactions at each work-related location at different time</em></p>
 <p>Two plots from the exploratory analsis tab work together to provide evidences on the suspicious activities. With a focused on work-related location histogram shown on Fig2,it is discovered that Frydos Autosupply n’ More have transactions during the dinner and night hours whilst the rest of the work-related locations do not disply such patterns.With addition to the abnormal spending amount discovered from the jitter plot. Frydos Autosupply n’ More could be circled as a location worthy more investigations.</p>
 </div>
 <div id="geo-visual-analysis" class="section level1">
@@ -332,12 +335,12 @@ and Willem Vasco-Pais met at Desafio Golf Course on 12th, January.</p>
 </div>
 <div id="text-analysis" class="section level1">
 <h1>Text Analysis</h1>
-<p>Text analytics extracted frequent terms, word cloud and topic distribution from miniblogs and calls. With the aid of visual analytics, readers can look at the graphs instead of bunch of words. The page is designed to show the readers how word clouds, term frequency and topic distribution change over time. Firstly, readers can choose which information source they are more interested: miniblog or emergency calls. Secondly, they can choose detailed time period to focus on. Date is dropped in the column since it happened in the same day. Time are cut off by every 60 minutes start from 5 pm to 9 pm.</p>
+<p>Text analytics extracted frequent terms, word cloud and topic distribution from miniblogs and calls. The page is designed to show the readers how word clouds, term frequency and topic distribution change over time.</p>
 <p><img src="VAPoster_files/11.png" style="width:90.0%" /></p>
 <p><em>Fig 6. Wordcloud of the events</em></p>
-<p><img src="VAPoster_files/12.png" style="width:90.0%" /></p>
+<p><img src="VAPoster_files/12.png" style="width:50.0%" /></p>
 <p><em>Fig 7. Blog term frequency by hours</em></p>
-<p><img src="VAPoster_files/13.png" style="width:90.0%" /></p>
+<p><img src="VAPoster_files/13.png" style="width:50.0%" /></p>
 <p><em>Fig 8. Topic Distribution by hours</em></p>
 <p>There are 4 incidents we can conclude from the charts shown above.
 1. At 6 pm, a fire started in the apartment dancing dolphin at 6 pm. The neighborhood evacuated themselves at 7 pm as the fire went stronger. People called fire station so firefighters came at 8 pm. The fire spreading is too fast to put out and injured the firefighters. Eventually, the fire caused explosion at 9 pm. Abila police arrested the suspects who started the fire.

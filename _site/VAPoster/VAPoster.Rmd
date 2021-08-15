@@ -26,16 +26,23 @@ bibliography: packages.bib
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{r}
+library(pagedown)
+pagedown::chrome_print("VAPoster.html")
+```
+
+
 # Introduction
 
 The local company GAStech reported missing employees while multiple major outbreaks struck the city on the night of 23rd. To investigate the incidents, multiple sources of evidences have been collated:
+
 1. GAStech released a tracking data of 2 weeks leading up to the disappearance as GAStech provides many of their employees with company cars for personal and professional use. GAStech also provided credit card transaction and Kronos-Kares loyalty card usage data.
 2. Relevant microblog records that have been identified by automated filters and text transcripts of emergency dispatches by the Abila, Kronos local police and fire departments.
 
 # Objectives
-1. To reveal city location hot-spots based on the spending data and to detect spending anomaly. Investigators are able to scale down the scope of analysis with more focus on specific segments with the use of selections. 
-2. To create an interactive map visualization framework that supports selection of time frame as well as employees. Movement patterns of one or more employees are displayed to discover abnormal behaviors and unofficial relationships.
-3. To build a timeline analysis for the chaotic night on 23rd based on text analytics. Leveraging on topic modelling techniques are extracted from the massive amount of text data to help investigators form better understanding on the occurrence of events.
+1. To reveal city location hot-spots based on the spending data and to detect spending anomaly. 
+2. To display movement patterns of one or more employees to discover abnormal behaviors and unofficial relationships.
+3. To build a timeline analysis for the chaotic night on 23rd based on text analytics. 
 
 # Exploratory Data Analysis
 
@@ -47,9 +54,9 @@ There are 3 kinds of locations based on its nature: F&B, Work and Lifestyle. Tra
 
 The jitter plot on the *left* side displays each transaction at each location.The jitter plot is useful in identifying the **anomaly** from the clustered expenditures. The histogram plot on the *right* side displays the distribution of the transactions at each location.The plot is able to show the hot spots during different time period and when they are popular. 
 
-![](VAPoster_files/10.png){width=90%}
+![](VAPoster_files/03.png){width=90%}
 
-*Fig 2. transactionns of Elsa Orilla and Brand Tempestad on 10th Jan at Chostus Hotel*
+*Fig 2. Number of transactions at each work-related location at different time*
 
 Two plots from the exploratory analsis tab work together to provide evidences on the suspicious activities. With a focused on work-related location histogram shown on Fig2,it is discovered that Frydos Autosupply n’ More have transactions during the dinner and night hours whilst the rest of the work-related locations do not disply such patterns.With addition to the abnormal spending amount discovered from the jitter plot. Frydos Autosupply n’ More could be circled as a location worthy more investigations.
 
@@ -75,17 +82,17 @@ However, based on the transaction details from below, they paid their bills sepa
 
 # Text Analysis
 
-Text analytics extracted frequent terms, word cloud and topic distribution from miniblogs and calls. With the aid of visual analytics, readers can look at the graphs instead of bunch of words. The page is designed to show the readers how word clouds, term frequency and topic distribution change over time. Firstly, readers can choose which information source they are more interested: miniblog or emergency calls. Secondly, they can choose detailed time period to focus on. Date is dropped in the column since it happened in the same day. Time are cut off by every 60 minutes start from 5 pm to 9 pm. 
+Text analytics extracted frequent terms, word cloud and topic distribution from miniblogs and calls. The page is designed to show the readers how word clouds, term frequency and topic distribution change over time. 
 
 ![](VAPoster_files/11.png){width=90%}
 
 *Fig 6. Wordcloud of the events*
 
-![](VAPoster_files/12.png){width=90%}
+![](VAPoster_files/12.png){width=50%}
 
 *Fig 7. Blog term frequency by hours*
 
-![](VAPoster_files/13.png){width=90%}
+![](VAPoster_files/13.png){width=50%}
 
 *Fig 8. Topic Distribution by hours*
 
@@ -97,3 +104,4 @@ There are 4 incidents we can conclude from the charts shown above.
 
 # Conclusion
 In this work we presented an integrated visual analytics dashboard for public and government analysis of tracking data, history of credit card, loyalty card and social media data. Multiple text mining, visualisation techniques were applied to further investigate things happened in Abila city in 2014. Abnormal behaviors were discovered. 
+

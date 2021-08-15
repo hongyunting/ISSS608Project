@@ -53,8 +53,8 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  AbilaServer("abilaPlot")
   exploreServer("jitterplot")
+  AbilaServer("abilaPlot")
   eventServer("wordcloud")
 }
 

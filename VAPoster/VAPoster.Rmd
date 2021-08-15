@@ -26,6 +26,12 @@ bibliography: packages.bib
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{r}
+library(pagedown)
+pagedown::chrome_print("VAPoster.html")
+```
+
+
 # Introduction
 
 The local company GAStech reported missing employees while multiple major outbreaks struck the city on the night of 23rd. To investigate the incidents, multiple sources of evidences have been collated:
