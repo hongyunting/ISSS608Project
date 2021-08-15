@@ -1,23 +1,48 @@
 ### data clean
 #### import packages
-packages= c()
 
-packages = c('DT','widyr','dplyr','wordcloud',
-             'ggwordcloud','textplot','lubridate','hms','tidyverse','tidygraph',
-             'ggraph','igraph','LDAvis','servr','dplyr','stringi',
-             'raster','sf','clock','tmap','data.table','textclean','tm',
-             'wordcloud','wordcloud2','text2vec','topicmodels',
-             'textmineR','quanteda','BTM','textplot','concaveman','ggwordcloud',
-             'qdapDictionaries','textstem','devtools','ggiraph',
-             'plotly','igraph', 'tidygraph','visNetwork','udpipe','grid',
-             'SnowballC','proustr','tidytext')
+library('DT')
+library('dplyr')
+library('textplot')
+library('lubridate')
+library('hms')
+library('tidyverse')
+library('tidygraph')
+library('ggraph')
+library('igraph')
+library('LDAvis')
+library('servr')
+library('stringi')
+library('raster')
+library('sf')
+library('clock')
+library('tmap')
+library('data.table')
+library('textclean')
+library('tm')
+library('wordcloud')
+library('text2vec')
+library('topicmodels')
+library('textmineR')
+library('quanteda')
+library('BTM')
+library('textplot')
+library('concaveman')
+library('ggwordcloud')
+library('qdapDictionaries')
+library('textstem')
+library('devtools')
+library('ggiraph')
+library('plotly')
+library('igraph')
+library('visNetwork')
+library('udpipe')
+library('grid')
+library('SnowballC')
+library('proustr')
+library('tidytext')
+library('widyr')
 
-for (p in packages){
-    if (!require(p,character.only = T)){
-        install.packages(p)    
-    }
-    library(p,character.only = T)
-}
 
 #### import data
 segment1 <- read_csv('R/data/csv-1700-1830.csv')
@@ -29,7 +54,6 @@ raw_text <- rbind(segment1,segment2,segment3)
 
 #### Wrangling time
 raw_text$`date(yyyyMMddHHmmss)`<-ymd_hms(raw_text$`date(yyyyMMddHHmmss)`)
-
 
 #### 1.1 clean data,raw_text
 raw_text$clean_message <-raw_text$message%>%
@@ -137,9 +161,9 @@ eventUI <- function(id){
                   min = 1,  max = 200,  value = 100)
     ),
     mainPanel(
-      plotOutput(NS(id,"wordcloud"), width = "1000px", height = "700px"),
-      plotlyOutput(NS(id,"wordFreq"), width = "1000px", height = "700px"),
-      plotlyOutput(NS(id,"topicDist"), width = "1000px", height = "700px")
+      plotOutput(NS(id,"wordcloud")),
+      plotlyOutput(NS(id,"wordFreq")),
+      plotlyOutput(NS(id,"topicDist"))
     )
   )
 }            
