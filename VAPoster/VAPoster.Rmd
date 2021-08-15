@@ -1,6 +1,6 @@
 ---
 #color theme
-#primary_colour: '#1a17b3'
+primary_colour: '#1a17b3'
 #secondary_colour: '#1a17b3'
 #accent_colour: '#00A699'
 column_numbers: 4
@@ -9,15 +9,12 @@ author:
   - name: '**Hong Yun Ting**'
     email: ythong.2019@mitb.smu.edu.sg
     main: true
-    affil: 1
   - name: '**Li ShuXian**'
     email: shuxian.li.2020@mitb.smu.edu.sg
     main: true
-    affil: 1
   - name: '**Yang Xu**'
     email: xu.yang.2020@mitb.smu.edu.sg
     main: true
-    affil: 1
 
 output: 
   posterdown::posterdown_html:
