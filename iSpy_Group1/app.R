@@ -28,7 +28,7 @@ ui <- fluidPage(
                         exploreUI("jitterplot")
                         ), 
                tabPanel("GPS Tracking", fluid = TRUE, 
-                        titlePanel("Tracing GAStech's Employee(s) Movement"),
+                        titlePanel("Tracing GAStech's Employee Movement"),
                         tags$head(
                           tags$style(HTML("
                              .multicol {
@@ -38,13 +38,24 @@ ui <- fluidPage(
                             }
                        "))),
                         AbilaUI("abilaPlot")),
-               tabPanel("Text Analysis", fluid = TRUE))
+               tabPanel("Text Analysis", fluid = TRUE, 
+                        titlePanel("Exploring Aliba's Events"),
+                        tags$head(
+                          tags$style(HTML("
+                             .multicol {
+                               -webkit-column-count: 3; /* Chrome, Safari, Opera */
+                               -moz-column-count: 3; /* Firefox */
+                               column-count: 3;
+                            }
+                       "))),
+                        eventUI("wordcloud")))
               
 )
 
 server <- function(input, output, session) {
   AbilaServer("abilaPlot")
   exploreServer("jitterplot")
+  eventServer("wordcloud")
 }
 
 # Run the application 
