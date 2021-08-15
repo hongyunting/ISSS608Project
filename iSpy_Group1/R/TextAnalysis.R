@@ -77,11 +77,12 @@ pr_stem_words(raw_text,clean_message,language = "english")
 raw_text$time_bin = cut(raw_text$`date(yyyyMMddHHmmss)`, breaks="60 mins")
 raw_text$time_bin<-raw_text$time_bin %>% str_replace_all("2014-01-23 ","")
 raw_text$time_bin <- raw_text$time_bin %>%
-    gsub(pattern ='17:00:00',replacement = "5pm",raw_text$message)%>%
-    gsub(pattern ='18:00:00',replacement = "6pm",raw_text$message)%>%
-    gsub(pattern ='19:00:00',replacement = "7pm",raw_text$message)%>%
-    gsub(pattern ='20:00:00',replacement = "8pm",raw_text$message)%>%
-    gsub(pattern ='21:00:00',replacement = "9pm",raw_text$message)
+    gsub(pattern ='17:00:00',replacement = "5pm",raw_text$time_bin)%>%
+    gsub(pattern ='18:00:00',replacement = "6pm",raw_text$time_bin)%>%
+    gsub(pattern ='19:00:00',replacement = "7pm",raw_text$time_bin)%>%
+    gsub(pattern ='20:00:00',replacement = "8pm",raw_text$time_bin)%>%
+    gsub(pattern ='21:00:00',replacement = "9pm",raw_text$time_bin)
+    
 
 #### 1.5 split into blog and text transcripts of emergency call
 blog <- filter(raw_text,type=='mbdata')
