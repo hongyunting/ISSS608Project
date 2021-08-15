@@ -2,8 +2,7 @@
 main_topsize: 0.2 #percent coverage of the poster
 main_bottomsize: 0.1
 #ESSENTIALS
-title: iSpy - An Interactive Visual Application for Exploring GAStech Employees Movement Data and Aliba, Kronos Events
-author:
+ author:
   - name: Hong Yun Ting
     email: ythong.2019@mitb.smu.edu.sg
     affiliation: Singapore Management University
@@ -14,7 +13,7 @@ author:
     email: xu.yang.2020@mitb.smu.edu.sg
     affiliation: Singapore Management University
 main_findings:
-  - "Make **better posters** with RMarkdown + **posterdown**."
+  - "iSpy - An Interactive Visual Application for Exploring GAStech Employees Movement Data and Aliba, Kronos Events"
 logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 logocenter_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/qr-code-black.png
