@@ -128,7 +128,7 @@ eventUI <- function(id){
                              '9pm' = '9pm'),
                   selected = "5pm",
                   options = list(`actions-box` = TRUE),
-                  multiple = T),
+                  multiple = F),
       sliderInput(NS(id,"freq"),
                   "Minimum Frequency:",
                   min = 1,  max = 50, value = 15),
