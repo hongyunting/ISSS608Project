@@ -1,8 +1,8 @@
 ---
 #color theme
-primary_colour: '#1a17b3'
-secondary_colour: '#1a17b3'
-accent_colour: '#00A699'
+#primary_colour: '#1a17b3'
+#secondary_colour: '#1a17b3'
+#accent_colour: '#00A699'
 column_numbers: 4
 title: iSpy - An Interactive Visual Application for Exploring GAStech Employees Movement Data and Aliba, Kronos Events
 author:
