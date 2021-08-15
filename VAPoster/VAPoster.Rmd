@@ -16,7 +16,7 @@ abstract: |
 primary_colour: '#1a17b3'
 secondary_colour: '#1a17b3'
 accent_colour: '#00A699'
-column_numbers: 3
+column_numbers: 4
 output: 
   posterdown::posterdown_html:
     self_contained: false
