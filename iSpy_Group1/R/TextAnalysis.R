@@ -153,7 +153,7 @@ eventServer <- function(id){
       
       #text transform: convert dataframe to corpus
       cleanMsg <- raw_text %>% 
-        filter(types %in% type & time_bin %in% period)
+        filter(type %in% types & time_bin %in% period)
       
       docs <- Corpus(VectorSource(as.character(cleanMsg$clean_message)))
       
