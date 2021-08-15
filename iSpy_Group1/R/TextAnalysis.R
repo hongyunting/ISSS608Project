@@ -137,12 +137,12 @@ eventServer <- function(id){
   moduleServer(id, function(input, output, session){
     #word cloud
     output$wordcloud <-renderPlot({
-      type <- unlist(input$datatype)
+      types <- unlist(input$datatype)
       period <- unlist(input$timeperiod)
       
       #text transform: convert dataframe to corpus
       cleanMsg <- raw_text %>% 
-        filter(type %in% type & time_bin %in% period)
+        filter(type %in% types & time_bin %in% period)
       
       docs <- Corpus(VectorSource(as.character(cleanMsg$clean_message)))
       
