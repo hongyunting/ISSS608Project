@@ -12,13 +12,45 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This tab is to identify popular locations of Abila city and identify transaction anomalies.
 
-Users are able to select the categories of locations and time periods that they are interested in from the selection panel located on the top of the page. 
+- Users are able to select the categories of locations and time periods that they from the selection panel located on the top of the page with the flexibility to select/de-select all.
+
 
 ![](User_Guide_IMG/01.PNG)
+![](User_Guide_IMG/02.PNG)
+*Fig 1 Selection panels of the Exploratory page*
+
+- Users can mouse over to activate the tooltips which display detailed information of the transactions and the count of transactions for each location.
 
 
-
+![](User_Guide_IMG/03.PNG)
+![](User_Guide_IMG/04.PNG)
+*Fig 2 Interactive tooltip of the plots*
 
 # GPS Tracking
+
+This tab is to visualise the traces of employees and their corresponding transaction records based on user selections.
+
+- Users could choose the date range, time periods as well as employees from the left panel. Users could choose multiple employees at the same time to explore their official and unofficial relationships
+
+![](User_Guide_IMG/05.PNG)
+*Fig 3 Selection panel of the GPS Tracking Page*
+
+
+- The interactive map will display the movements of the selected employees during the time period on the selected date.
+
+![](User_Guide_IMG/06.PNG)
+*Fig 4 Interactive Map*
+
+- Users could choose from the layers built on the map.
+
+![](User_Guide_IMG/07.PNG)
+*Fig 5 Map layer selection*
+
+- Users are also able to zoom in the map to explore on greater details.
+
+![](User_Guide_IMG/08.PNG)
+*Fig 6  Enlarged map*
+
+
 
 # Text Analysis 
