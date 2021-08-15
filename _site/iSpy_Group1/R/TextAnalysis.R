@@ -2,15 +2,15 @@
 #### import packages
 packages= c()
 
-packages = c('DT','tidytext','widyr','dplyr','wordcloud',
+packages = c('DT','widyr','dplyr','wordcloud',
              'ggwordcloud','textplot','lubridate','hms','tidyverse','tidygraph',
              'ggraph','igraph','LDAvis','servr','dplyr','stringi',
              'raster','sf','clock','tmap','data.table','textclean','tm',
-             'wordcloud','wordcloud2','text2vec','topicmodels','tidytext',
+             'wordcloud','wordcloud2','text2vec','topicmodels',
              'textmineR','quanteda','BTM','textplot','concaveman','ggwordcloud',
              'qdapDictionaries','textstem','devtools','ggiraph',
              'plotly','igraph', 'tidygraph','visNetwork','udpipe','grid',
-             'SnowballC','proustr')
+             'SnowballC','proustr','tidytext')
 
 for (p in packages){
     if (!require(p,character.only = T)){
