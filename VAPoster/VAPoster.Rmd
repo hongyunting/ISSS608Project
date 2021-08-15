@@ -3,7 +3,7 @@
 primary_colour: '#1a17b3'
 #secondary_colour: '#1a17b3'
 #accent_colour: '#00A699'
-column_numbers: 3
+column_numbers: 4
 title: iSpy - An Interactive Visual Application for Exploring GAStech Employees Movement Data and Aliba, Kronos Events
 author:
   - name: '**Hong Yun Ting**'
@@ -31,7 +31,6 @@ knitr::opts_chunk$set(echo = FALSE)
 The local company GAStech reported missing employees while multiple major outbreaks struck the city on the night of 23rd. To investigate the incidents, multiple sources of evidences have been collated:
 
 1. GAStech released a tracking data of 2 weeks leading up to the disappearance as GAStech provides many of their employees with company cars for personal and professional use. GAStech also provided credit card transaction and Kronos-Kares loyalty card usage data.
-
 2. Relevant microblog records that have been identified by automated filters and text transcripts of emergency dispatches by the Abila, Kronos local police and fire departments.
 
 # Objectives
@@ -43,7 +42,7 @@ The local company GAStech reported missing employees while multiple major outbre
 
 ![](VAPoster_files/02.png){width=90%}
 
-<div align="center">*Fig 1. First Tab Layout*
+*Fig 1. First Tab Layout*
 
 There are 3 kinds of locations based on its nature: F&B, Work and Lifestyle. Transactions are categorized into 5 types: Morning, Lunch, Afternoon, Dinner and Midnight. ‘Lunch’ and ‘Dinner’ periods are specially segregated as many F&B locations have high transactions during these two periods.
 
@@ -99,3 +98,4 @@ There are 4 incidents we can conclude from the charts shown above.
 
 # Conclusion
 In this work we presented an integrated visual analytics dashboard for public and government analysis of tracking data, history of credit card, loyalty card and social media data. Multiple text mining, visualisation techniques were applied to further investigate things happened in Abila city in 2014. Abnormal behaviors were discovered. 
+
