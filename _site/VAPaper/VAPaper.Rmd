@@ -117,7 +117,6 @@ The multi-layer map has the flexibility of zooming in and out as well as choosin
 
 Text analytics extracted frequent terms, word cloud and topic distribution from miniblogs and calls. With the aid of visual analytics, readers can look at the graphs instead of bunch of words. The page is designed to show the readers how word clouds, term frequency and topic distribution change over time. Firstly, readers can choose which information source they are more interested: miniblog or emergency calls. Secondly, they can choose detailed time period to focus on. Date is dropped in the column since it happened in the same day. Time are cut off by every 60 minutes start from 5 pm to 9 pm. 
 
-<<<<<<< HEAD
 ![](VAPaper_IMG/11.png)
 *Fig 7. Wordcloud of the events*
 
@@ -126,9 +125,6 @@ Text analytics extracted frequent terms, word cloud and topic distribution from 
 
 ![](VAPaper_IMG/13.png)
 *Fig 9. Topic Distribution by hours*
-=======
-
->>>>>>> d2390af3b1ddf506dac4f4775aec91490be4f5db
 
 # Demonstration and Use Cases
 
