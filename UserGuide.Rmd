@@ -1,9 +1,24 @@
 ---
-title: "User Guide"
+title: "iSpy Application User Guide"
 description: |
-  Some additional details about the blog
+  This blog provide a handy guide to navigate the Shiny application 
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+# Exploratory Data Analysis
+
+This tab is to identify popular locations of Abila city and identify transaction anomalies.
+
+Users are able to select the categories of locations and time periods that they are interested in from the selection panel located on the top of the page. 
+
+![](User_Guide_IMG/01.PNG)
+
+
+
+
+# GPS Tracking
+
+# Text Analysis 

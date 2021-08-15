@@ -13,7 +13,7 @@
     "categories": [],
     "contents": "\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-06-14T15:03:43+08:00",
+    "last_modified": "2021-08-15T15:16:22+08:00",
     "input_file": {}
   },
   {
@@ -30,7 +30,7 @@
     "categories": [],
     "contents": "\r\nBackground\r\nGAStech provides many of their employees with company cars for their personal and professional use, but unbeknownst to the employees, the cars are equipped with GPS tracking devices. You are given tracking data for the two weeks leading up to the disappearance, as well as credit card transactions and loyalty card usage data.\r\nMotivation\r\nThe challenge requires us to analyze movement and tracking data from loyalty cards and credit cards. Our group is interested in finding out the hidden story behind the data. For example, if there is any mismatch between credit card history and his or her location. Therefore, we aimed to match the tables and explore more.\r\nProject Objectives\r\nThis project aims to deliver a R Shiny Application which enables\r\nInteractive User interface that allows users to navigate the content at ease.\r\nSpending pattern between Employee credit card and loyalty card usage\r\nVisualize Geographical Data on employees personal/work route and routines\r\nIdentify anomalies and suspicious behaviors\r\nIdentify any relationship/employee interactions in GASTech\r\nAnalyze tracking data and identify who are the users of credit cards and loyalty cards\r\nProposed Scope and Methodology\r\nExploratory Data Analysis (EDA)\r\nIdentify popular locations using the credit and loyalty data\r\nExplore trends of spending behaviors by locations and identify anomalies\r\nExplore time of spending using the timestamp datapoints and identify anomalies\r\nExploratory Spatial Data Analysis (ESDA)\r\nDevelop map using the geospatial data files and plot the routes travelled by each car ID by date and credit/Loyalty card usage on the map\r\nIdentify potential informal and unofficial relationships among GASTech personnel with employees share the same/similar routes or frequently appear at same spots together.\r\nIdentify the correlations between the routes and card usage to infer the owners of each credit card/loyalty card.\r\nProject Timeline\r\n\r\nStoryboard & Visualization Features\r\nFirst page: EDA (Dashboard Style)\r\nEmployee favorite Hotspot\r\nAverage of Individual credit card spending amount\r\n\r\nGeospatial Map (with selection of date and employee(one/multiple)) - one page\r\nShow destination, cc / loyalty card used and time\r\nShow any other employees happen to be at the same location within the time frame\r\n\r\nStatistical Analysis (eg. Selection of x-variables, y-variables, graph)\r\nData Preparation\r\nData Source\r\nGPS data from the devices fitted in the employee cars\r\nEmployee car assignments\r\nCredit card swipe details\r\nLoyalty card details\r\nTourist map of the area - Abila\r\nShp files\r\nprj file\r\nTools Used\r\nTableau\r\nMicrosoft Excel\r\nR Studio\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-06-20T23:33:31+08:00",
+    "last_modified": "2021-08-15T15:16:22+08:00",
     "input_file": {}
   }
 ]
