@@ -106,13 +106,12 @@ knitr::kable(
   escape = FALSE)
 ```
 
-# References
+# Conclusion
+In this work we presented an integrated visual analytics dashboard for public and government analysis of tracking data, history of credit card, loyalty card and social media data. Multiple text mining, visualisation techniques were applied to further investigate things happened in Abila city in 2014. Abnormal behaviors were discovered. 
 
-```{r echo=FALSE, eval=FALSE}
-# Convert Poster HTML to PDF
-library(pagedown)
-pagedown::chrome_print("VAPoster.html")
-```
+# Acknowledgement 
+
+The authors would like to thank Professor Kam Tin Seong for his kind support and guidance on the project. 
 
 
 
