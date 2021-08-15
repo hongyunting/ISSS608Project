@@ -5,7 +5,7 @@
       "title": "iSpy",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-08-15T16:02:35+08:00"
+      "last_modified": "2021-08-15T16:06:48+08:00"
     },
     {
       "path": "Poster.html",
@@ -36,8 +36,8 @@
       "title": "iSpy Shiny Application",
       "description": "GAStech Tracking System using R and Shiny\nPlease allow a few seconds for R Shiny to load up\n",
       "author": [],
-      "contents": "\n\n\n\n\n\n\n\n\niSpy\n\n\nHome\nProposal\nApplication (R Shiny)\nUser Guide\nPoster\nResearch Paper\n☰\n\n\n  \n    \n      \n        \n        \n        \n      \n      \n    \n    \n      \n  Home\n\n\n  Proposal\n\n\n  Application (R Shiny)\n\n\n  User Guide\n\n\n  Poster\n\n\n  Research Paper\n\n      \n  \n\n\n\n\n\n\niSpy Shiny Application\n\n\n\n\nlibrary(shiny)\n\n\n\n\n\n\n\n\n\n\n\n\n// add bootstrap table styles to pandoc tables\nfunction bootstrapStylePandocTables() {\n  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');\n}\n$(document).ready(function () {\n  bootstrapStylePandocTables();\n});\n\n\n\n$(document).ready(function () {\n  window.buildTabsets(\"section-TOC\");\n});\n\n$(document).ready(function () {\n  $('.tabset-dropdown > .nav-tabs > li').click(function () {\n    $(this).parent().toggleClass('nav-tabs-open');\n  });\n});\n\n  (function () {\n    var script = document.createElement(\"script\");\n    script.type = \"text/javascript\";\n    script.src  = \"https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\";\n    document.getElementsByTagName(\"head\")[0].appendChild(script);\n  })();\n",
-      "last_modified": "2021-08-15T15:28:50+08:00"
+      "contents": "\n\n\n\n\n \n\n",
+      "last_modified": "2021-08-15T16:06:42+08:00"
     },
     {
       "path": "UserGuide.html",
