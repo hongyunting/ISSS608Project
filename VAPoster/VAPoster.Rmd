@@ -5,13 +5,13 @@ poster_width: "30.39in"
 poster_height: "33.11in"
 title: iSpy - An Interactive Visual Application for Exploring GAStech Employees Movement Data and Aliba, Kronos Events
 author:
-  - name: Hong Yun Ting
+  - name: '**Hong Yun Ting'**
     email: ythong.2019@mitb.smu.edu.sg
     affiliation: Singapore Management University
-  - name: Li ShuXian
+  - name: '**Li ShuXian'**
     email: shuxian.li.2020@mitb.smu.edu.sg
     affiliation: Singapore Management University
-  - name: Yang Xu
+  - name: '**Yang Xu'**
     email: xu.yang.2020@mitb.smu.edu.sg
     affiliation: Singapore Management University
 #color theme
