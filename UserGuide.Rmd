@@ -46,11 +46,37 @@ This tab is to visualise the traces of employees and their corresponding transac
 ![](User_Guide_IMG/07.PNG)
 *Fig 5 Map layer selection*
 
-- Users are also able to zoom in the map to explore on greater details.
+- Users are also able to zoom in the map to explore greater details.
 
 ![](User_Guide_IMG/08.PNG)
 *Fig 6  Enlarged map*
 
+- An interactive data table displays the detailed transaction information based on the user selections.
 
+![](User_Guide_IMG/09.PNG)
+*Fig 7  Data Table*
 
 # Text Analysis 
+
+This tab is to utilise text data to investigate the events on 23rd. Multiple text analysis are used to discover insights from the massive text data. 
+
+- Users are able to choose from blog and call data sets for text analysis. The time period selection can filter the dataset to the particular hour. 
+
+![](User_Guide_IMG/10.PNG)
+*Fig 8  Text Analysis selection panel*
+
+- The wordcloud dynamically display the results based on selections from the 'minimum frequency' and 'maximun number of words' on the left panel.
+
+![](User_Guide_IMG/11.PNG)
+*Fig 9  Word Cloud and User Selections*
+
+- Users can observe the term frequency of top words during the selected hours with their mean tf-idf scores displayed.
+
+![](User_Guide_IMG/12.PNG)
+*Fig 10  Term Frequency plot for top words during 5pm-6pm*
+
+- Users can observe the top distribution during the selected hour to look at the prominent topics discussed by the mass.
+
+
+![](User_Guide_IMG/13.PNG)
+*Fig 10  Topic distribution for 13 topics identified during 5pm-6pm*
