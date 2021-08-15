@@ -98,3 +98,4 @@ There are 4 incidents we can conclude from the charts shown above.
 
 # Conclusion
 In this work we presented an integrated visual analytics dashboard for public and government analysis of tracking data, history of credit card, loyalty card and social media data. Multiple text mining, visualisation techniques were applied to further investigate things happened in Abila city in 2014. Abnormal behaviors were discovered. 
+
