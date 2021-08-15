@@ -1,22 +1,24 @@
 ---
+main_topsize: 0.09 #percent coverage of the poster
+main_bottomsize: 0.07
+poster_width: "30.39in"
+poster_height: "33.11in"
 title: iSpy - An Interactive Visual Application for Exploring GAStech Employees Movement Data and Aliba, Kronos Events
 author:
   - name: Hong Yun Ting
     email: ythong.2019@mitb.smu.edu.sg
     affiliation: Singapore Management University
   - name: Li ShuXian
-    email: bob@example.com
+    email: shuxian.li.2020@mitb.smu.edu.sg
     affiliation: Singapore Management University
   - name: Yang Xu
     email: xu.yang.2020@mitb.smu.edu.sg
     affiliation: Singapore Management University
-abstract: |
-  Leveraging on the power of visual analytics, this paper discusses the development of a prototype of interactive web application using Rshiny. With the focus of enabling efficient investigations, the prototype aims to transform information of various data formats into insightful visuals using the analytical approaches.
 #color theme
 primary_colour: '#1a17b3'
 secondary_colour: '#1a17b3'
 accent_colour: '#00A699'
-column_numbers: 4
+column_numbers: 3
 output: 
   posterdown::posterdown_html:
     self_contained: false
